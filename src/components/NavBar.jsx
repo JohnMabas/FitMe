@@ -1,6 +1,5 @@
 
-// import logo from 'src/assets/image/FitMe-logo.png'
-
+import logo from '../assets/image/FitMe-logo.png'
 import { FaSearch, FaShoppingBag } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
 
@@ -8,8 +7,8 @@ const NavBar = () => {
     return ( 
         <>
         <nav className="grid grid-cols-2 justify-center items-center m-10">
-            <span>
-                {/* {logo} */}
+            <span className='flex items-center gap-2'>
+                <img src={logo} alt="logo" />
                 <b className='text-lg'>FitMe</b>
             </span >
             <div className="flex justify-between items-center">
