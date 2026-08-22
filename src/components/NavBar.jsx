@@ -4,7 +4,7 @@ import { FaSearch, FaShoppingBag } from "react-icons/fa";
 const NavBar = () => {
   return (
     <>
-      <nav className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-4 m-4 sm:m-6 lg:m-10">
+      <nav className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-4 m-4 sm:m-6 lg:m-7">
 
         <span className="flex items-center gap-2">
           <img src={logo} alt="logo" className="w-auto" />
