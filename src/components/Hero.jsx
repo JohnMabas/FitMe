@@ -1,40 +1,93 @@
 import Bananna from "../assets/image/bananna.png";
 import Apple from "../assets/image/apple.png";
+import Bg1 from "../assets/image/FitFood-bg1.png";
+import Bg2 from "../assets/image/FitFood-bg2.png";
+
 const Hero = () => {
   return (
     <>
-      <div className="grid grid-cols-2 justify-center items-center gap-5">
+      <div className="w-full max-w-full overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-5 m-4 sm:m-6 lg:m-10">
 
-        <div>
-          <span className="flex items-center gap-2 text-3xl font-bold">
-            Premium <span className="text-amber-600">quality</span> <br /> Food for
-            your <img src={Bananna} alt="" className="w-16" />{" "}
-            <span className="text-amber-600">healthy</span> <br />{" "}
-            <img src={Apple} alt="" className="w-16" /> & Daily Life{" "}
-          </span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-          <div className="flex items-center gap-5">
-            <input className="border w-80 py-1 pl-4 rounded-lg" type="text" placeholder="Enter your delivery location" />
-            <button className="border  bg-black text-white p-2 rounded-lg">Get Started</button>
-          </div>
-          <p>Popular cities in India</p>
-          <div className="flex items-center gap-3">
-            <span>Hyderabad</span>
-            <span className="text-amber-600">Chennai</span>
-            <span>Mumbai</span>
-            <span className="text-amber-600">Bangalore</span>
-            <span>Delhi</span>
-            <span className="text-amber-600">Kolkata</span>
-          </div>
-        </div>
+          <div className="space-y-4 min-w-0">
 
-        <div>
-            jjjjjjjj
+            <div className="text-4xl sm:text-5xl font-bold leading-tight">
+
+              <span>
+                Premium <span className="text-amber-600">quality</span>
+              </span>
+
+              <span className="flex flex-wrap items-center gap-2">
+                Food for your
+                <img
+                  src={Bananna}
+                  alt=""
+                  className="w-8 sm:w-10 inline-block shrink-0"
+                />
+                <span className="text-amber-600">healthy</span>
+              </span>
+
+              <span className="flex flex-wrap items-center gap-2">
+                <img
+                  src={Apple}
+                  alt=""
+                  className="w-8 sm:w-10 inline-block shrink-0"
+                />
+                <span className="text-amber-600">& Daily Life</span>
+              </span>
+
+            </div>
+
+            <p className="text-sm sm:text-base">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 w-full">
+
+              <input
+                className="border w-full sm:w-80 max-w-full py-2 pl-4 rounded-lg"
+                type="text"
+                placeholder="Enter your delivery location"
+              />
+
+              <button className="border bg-black text-white p-2 rounded-lg whitespace-nowrap">
+                Get Started
+              </button>
+
+            </div>
+
+            <p>Popular cities in India</p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <span>Hyderabad</span>
+              <span className="text-amber-600">Chennai</span>
+              <span>Mumbai</span>
+              <span className="text-amber-600">Bangalore</span>
+              <span>Delhi</span>
+              <span className="text-amber-600">Kolkata</span>
+            </div>
+
+          </div>
+
+          <div className="flex items-center justify-center gap-2 sm:gap-4 w-full min-w-0">
+
+            <img
+              src={Bg1}
+              alt=""
+              className="w-[65%] sm:w-[60%] md:w-[55%] lg:w-[70%] xl:w-auto lg:h-120 max-w-full object-contain"
+            />
+
+            <img
+              src={Bg2}
+              alt=""
+              className="w-[30%] sm:w-[25%] md:w-[22%] lg:w-60 max-w-full object-contain"
+            />
+
+          </div>
+
         </div>
       </div>
     </>

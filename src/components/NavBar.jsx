@@ -1,35 +1,41 @@
-
-import logo from '../assets/image/FitMe-logo.png'
+import logo from "../assets/image/FitMe-logo.png";
 import { FaSearch, FaShoppingBag } from "react-icons/fa";
-import { FaBagShopping } from "react-icons/fa6";
 
 const NavBar = () => {
-    return ( 
-        <>
-        <nav className="grid grid-cols-2 justify-center items-center m-10">
-            <span className='flex items-center gap-2'>
-                <img src={logo} alt="logo" />
-                <b className='text-lg'>FitMe</b>
-            </span >
-            <div className="flex justify-between items-center">
-                <div className='border rounded-lg w-112.5 p-1 flex justify-center items-center gap-5'>
-                <input className='w-84 text-md' type="text" placeholder="Enter item or restaurant you are looking for" />
-                <FaSearch className=" text-lg"/>
-            </div>
+  return (
+    <>
+      <nav className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-4 m-4 sm:m-6 lg:m-10">
 
-            <FaShoppingBag className="text-2xl"/>
-            
-            <button className="border px-5 py-2 bg-black text-white font-bold rounded-lg ">singIn</button>
+        <span className="flex items-center gap-2">
+          <img src={logo} alt="logo" className="w-auto" />
+          <b className="text-lg">FitMe</b>
+        </span>
 
-            </div>
+        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
 
+          <div className="border rounded-lg w-full sm:w-112.5 p-1 flex justify-center items-center gap-3">
 
-            
+            <input
+              className="w-full min-w-0 text-md outline-none"
+              type="text"
+              placeholder="Enter item or restaurant you are looking for"
+            />
 
-        </nav>
-            
-        </>
-     );
-}
- 
+            <FaSearch className="text-lg shrink-0" />
+
+          </div>
+
+          <FaShoppingBag className="text-2xl self-center sm:self-auto shrink-0" />
+
+          <button className="border px-5 py-2 bg-black text-white font-bold rounded-lg whitespace-nowrap">
+            singIn
+          </button>
+
+        </div>
+
+      </nav>
+    </>
+  );
+};
+
 export default NavBar;
