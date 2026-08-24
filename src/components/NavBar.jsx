@@ -1,5 +1,6 @@
+import { BiShoppingBag } from "react-icons/bi";
 import logo from "../assets/image/FitMe-logo.png";
-import { FaSearch, FaShoppingBag } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 const NavBar = () => {
   return (
@@ -25,7 +26,8 @@ const NavBar = () => {
 
           </div>
 
-          <FaShoppingBag className="text-2xl self-center sm:self-auto shrink-0" />
+      
+          <BiShoppingBag className="text-2xl self-center sm:self-auto shrink-0" />
 
           <button className="border px-5 py-2 bg-black text-white font-bold rounded-lg whitespace-nowrap">
             singIn
