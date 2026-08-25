@@ -12,7 +12,7 @@ const Items = ({ Items }) => {
           </h1>
 
           <div className="grid grid-cols-2 gap-4">
-            {Items.slice(0, 12).map((item) => {
+            {Items.slice(0, 4).map((item) => {
               return (
                 <Cards
                   key={item.id}
@@ -35,7 +35,7 @@ const Items = ({ Items }) => {
           </h1>
 
           <div className="grid grid-cols-2 gap-4">
-            {Items.slice(12, 30).map((item) => {
+            {Items.slice(4, 8).map((item) => {
               return (
                 <Cards
                   key={item.id}
