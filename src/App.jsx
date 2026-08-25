@@ -4,6 +4,7 @@ import Cards from './components/Cards';
 import CTA from './components/CTA';
 import Hero from './components/Hero'
 import Items from './components/Items'
+import Mind from './components/Mind';
 import NavBar from './components/NavBar'
 import { useState, useEffect } from "react";
 
@@ -33,6 +34,7 @@ function App() {
     <Items Items={recipes}/>
     {/* <Cards/> */}
     <CTA/>
+    <Mind Name={recipes}/>
       
     </>
   )
