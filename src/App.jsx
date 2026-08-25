@@ -7,6 +7,7 @@ import Items from './components/Items'
 import Mind from './components/Mind';
 import NavBar from './components/NavBar'
 import { useState, useEffect } from "react";
+import Personalized from './components/Personalized';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
     {/* <Cards/> */}
     <CTA/>
     <Mind Name={recipes}/>
+    <Personalized Personal={recipes}/>
       
     </>
   )
