@@ -1,43 +1,75 @@
-
 import { FaStar } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
-import hand from "/src/assets/image/hand.png"
+import hand from "/src/assets/image/hand.png";
 
-
-export default function Cards({image, name, tags, rating, prepTimeMinutes, cookTimeMinutes }) {
+export default function Cards({
+  image,
+  name,
+  tags,
+  rating,
+  prepTimeMinutes,
+  cookTimeMinutes,
+}) {
   return (
-    <div>
+    <div className="w-full rounded-lg bg-[#f7f7f7] p-3 transition-all duration-200 hover:shadow-md">
       
-          <div  className=" img bg-gray-200  p-3 rounded-lg space-y-2  ">
-                  <img  src={image} alt="" className="w-52" />
-                  <h3>{name}</h3>
-                  <span className="flex gap-32 items-center">
-                    <p className="text-[14px]">{tags}</p>
-                    <span className="flex items-center gap-2">
-                      <FaStar className="text-amber-500 text-sm"/>
-                      <p className="text-[14px]">{rating}</p>
-                    </span>
-                  </span>
-                  <div className="flex justify-between items-center gap-16">
-                    <span className="flex items-center gap-1">
-                      <img src={hand} alt="" className="w-4" />
-                      <span className="flex gap-1 text-[13px]">
-                        <p>{prepTimeMinutes} </p>
-                        <p>Mins</p>
-                      </span>
-      
-                    </span>
-      
-                    <span className="flex items-center gap-1">
-                      <FaPeopleGroup className="text-amber-500 text-sm"/>
-                      <span className="flex items-center gap-1 justify-center text-[13px]">
-                        <p>{cookTimeMinutes} </p>
-                        <p>for two</p>
-                      </span>
-      
-                    </span>
-                  </div>
-                </div>
+      {/* Image */}
+      <div className="aspect-square w-full overflow-hidden rounded-md">
+        <img
+          src={image}
+          alt={name}
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      {/* Name */}
+      <h3 className="mt-2 line-clamp-2 min-h-[32px] text-xs font-medium leading-4 text-[#202020] sm:text-sm">
+        {name}
+      </h3>
+
+      {/* Tag + Rating */}
+      <div className="mt-2 flex items-center justify-between gap-2">
+        
+        <p className="truncate text-[10px] text-gray-500 sm:text-xs">
+          {tags}
+        </p>
+
+        <div className="flex shrink-0 items-center gap-1">
+          <FaStar className="text-[10px] text-amber-500" />
+
+          <span className="text-[10px] text-gray-600 sm:text-xs">
+            {rating}
+          </span>
+        </div>
+
+      </div>
+
+      {/* Bottom Details */}
+      <div className="mt-2 flex items-center justify-between gap-2">
+        
+        {/* Preparation */}
+        <div className="flex min-w-0 items-center gap-1">
+          <img
+            src={hand}
+            alt=""
+            className="h-3 w-3 shrink-0 object-contain sm:h-4 sm:w-4"
+          />
+
+          <span className="whitespace-nowrap text-[9px] text-gray-600 sm:text-[11px]">
+            {prepTimeMinutes} Mins
+          </span>
+        </div>
+
+        {/* Serves */}
+        <div className="flex min-w-0 items-center gap-1">
+          <FaPeopleGroup className="shrink-0 text-[10px] text-amber-500" />
+
+          <span className="whitespace-nowrap text-[9px] text-gray-600 sm:text-[11px]">
+            {cookTimeMinutes} for two
+          </span>
+        </div>
+
+      </div>
     </div>
-  )
+  );
 }

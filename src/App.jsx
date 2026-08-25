@@ -30,7 +30,7 @@ function App() {
     <NavBar/>
     <Hero/>
     <Items Items={recipes}/>
-    <Cards/>
+    {/* <Cards/> */}
       
     </>
   )
