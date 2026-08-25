@@ -11,9 +11,8 @@ export default function Cards({
   cookTimeMinutes,
 }) {
   return (
-    <div className="w-full rounded-lg bg-[#f7f7f7] p-3 transition-all duration-200 hover:shadow-md">
+    <div className=" img lg:w-64 w-full rounded-lg bg-[#f7f7f7] p-3 transition-all duration-200 hover:shadow-md">
       
-      {/* Image */}
       <div className="aspect-square w-full overflow-hidden rounded-md">
         <img
           src={image}
@@ -22,12 +21,10 @@ export default function Cards({
         />
       </div>
 
-      {/* Name */}
-      <h3 className="mt-2 line-clamp-2 min-h-[32px] text-xs font-medium leading-4 text-[#202020] sm:text-sm">
+      <h3 className="mt-2 line-clamp-2 min-h-8 text-xs font-medium leading-4 text-[#202020] sm:text-sm">
         {name}
       </h3>
 
-      {/* Tag + Rating */}
       <div className="mt-2 flex items-center justify-between gap-2">
         
         <p className="truncate text-[10px] text-gray-500 sm:text-xs">
@@ -44,10 +41,8 @@ export default function Cards({
 
       </div>
 
-      {/* Bottom Details */}
       <div className="mt-2 flex items-center justify-between gap-2">
         
-        {/* Preparation */}
         <div className="flex min-w-0 items-center gap-1">
           <img
             src={hand}
@@ -60,7 +55,6 @@ export default function Cards({
           </span>
         </div>
 
-        {/* Serves */}
         <div className="flex min-w-0 items-center gap-1">
           <FaPeopleGroup className="shrink-0 text-[10px] text-amber-500" />
 
