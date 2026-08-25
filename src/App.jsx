@@ -1,6 +1,7 @@
 
 import './App.css'
 import Cards from './components/Cards';
+import CTA from './components/CTA';
 import Hero from './components/Hero'
 import Items from './components/Items'
 import NavBar from './components/NavBar'
@@ -31,6 +32,7 @@ function App() {
     <Hero/>
     <Items Items={recipes}/>
     {/* <Cards/> */}
+    <CTA/>
       
     </>
   )
