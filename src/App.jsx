@@ -8,6 +8,7 @@ import Mind from './components/Mind';
 import NavBar from './components/NavBar'
 import { useState, useEffect } from "react";
 import Personalized from './components/Personalized';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
     <CTA/>
     <Mind Name={recipes}/>
     <Personalized Personal={recipes}/>
+    <Footer/>
       
     </>
   )
