@@ -15,7 +15,7 @@ const NavBar = () => {
 
     if (!search.trim()) return;
 
-    navigate(`/search?query=${encodeURIComponent(search)}`);
+   navigate(`/search?q=${encodeURIComponent(search.trim())}`);
   };
 
   return (

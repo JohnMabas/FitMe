@@ -30,7 +30,7 @@ function App() {
     getRecipes();
   }, []);
 
-  
+
 
   function Home() {
   return (
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/search",
-    element: <SearchResults/>,
+    element: <SearchResults recipes={recipes}/>,
   },
 ]);
 
