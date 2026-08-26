@@ -1,4 +1,4 @@
-
+import { createBrowserRouter, RouterProvider } from "react-router";
 import './App.css'
 import Cards from './components/Cards';
 import CTA from './components/CTA';
@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import { useState, useEffect } from "react";
 import Personalized from './components/Personalized';
 import Footer from './components/Footer';
+import SearchResults from "./components/SearchResults";
 
 
 function App() {
@@ -29,9 +30,12 @@ function App() {
     getRecipes();
   }, []);
 
+  
+
+  function Home() {
   return (
     <>
-    <NavBar/>
+     <NavBar/>
     <Hero/>
     <Items Items={recipes}/>
     {/* <Cards/> */}
@@ -39,7 +43,24 @@ function App() {
     <Mind Name={recipes}/>
     <Personalized Personal={recipes}/>
     <Footer/>
-      
+    </>
+  );
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/search",
+    element: <SearchResults/>,
+  },
+]);
+
+  return (
+    <>
+  <RouterProvider router={router} />;
     </>
   )
 }
