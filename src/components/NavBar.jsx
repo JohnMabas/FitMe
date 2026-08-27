@@ -16,13 +16,13 @@ const NavBar = () => {
     if (!search.trim()) return;
 
    navigate(`/search?q=${encodeURIComponent(search.trim())}`);
-  };
+   };
 
   return (
     <>
       <nav className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-4 m-4 sm:m-6 lg:m-7">
 
-        <span className="flex items-center gap-2">
+        <span onClick={() => navigate("/")} className="flex items-center gap-2">
           <img src={logo} alt="logo" className="w-auto" />
           <b className="text-lg">FitMe</b>
         </span>
