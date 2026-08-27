@@ -15,6 +15,7 @@ import Personalized from "./components/Personalized";
 import Footer from "./components/Footer";
 import SearchResults from "./components/SearchResults";
 import Restaurant from "./components/Restaurant";
+import Checkout from "./components/Checkout";
 
 
 function Home({ recipes }) {
@@ -72,6 +73,10 @@ function App() {
       path: "/restaurant/:id",
       element: <Restaurant recipesItem={recipes} />,
     },
+    {
+  path: "/checkout",
+  element: <Checkout/>
+},
   ]);
 
 

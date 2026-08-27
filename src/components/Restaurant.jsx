@@ -622,6 +622,7 @@ export default function Restaurant({ recipesItem = [] }) {
 
               <button
                 disabled={cart.length === 0}
+                onClick={() => navigate("/checkout")}
                 className="
                   mt-5
                   h-9
