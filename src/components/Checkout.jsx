@@ -48,24 +48,27 @@ export default function Checkout() {
                 className="text-[#FC8019]"
               />
 
-              <h2 className="text-[13px] font-semibold">
+              <h2 className="text-[17px] font-semibold">
                 Delivery address
               </h2>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 ">
               {/* SELECTED ADDRESS */}
               <button
                 className="
                   w-full rounded-md
-                  bg-[#FC8019]
-                  p-4 text-left text-white
-                  sm:w-46
+                  hover:bg-[#FC8019]
+                  bg-white
+                   border border-dashed border-[#FC8019]
+                  p-4 text-left text-gray-600
+                  sm:w-64
+                  sm:h-50
                 "
               >
                 <FaMapMarkerAlt size={13} />
 
-                <p className="mt-3 text-[9px] leading-4">
+                <p className="mt-3 text-[20px] leading-6 text-gray-600">
                   Dno. 12-34-12, YC Apartments, DOOR
                   Colony, Hyderabad, Telangana
                 </p>
@@ -75,9 +78,11 @@ export default function Checkout() {
               <button
                 className="
                   w-full rounded-md
+                  hover:bg-[#FC8019]
                   border border-dashed border-[#FC8019]
                   p-4 text-left
-                  sm:w-46
+                  sm:w-64
+                  sm:h-50
                 "
               >
                 <FaMapMarkerAlt
@@ -85,7 +90,7 @@ export default function Checkout() {
                   className="text-gray-500"
                 />
 
-                <p className="mt-3 text-[9px] leading-4 text-gray-600">
+                <p className="mt-3 text-[20px] leading-6 text-gray-600">
                   Dno. 12-34-12, YC Apartments, DOOR
                   Colony, Hyderabad, Telangana
                 </p>
@@ -101,7 +106,7 @@ export default function Checkout() {
                 className="text-[#FC8019]"
               />
 
-              <h2 className="text-[13px] font-semibold">
+              <h2 className="text-[16px] font-semibold">
                 Type of Order
               </h2>
             </div>
@@ -115,7 +120,7 @@ export default function Checkout() {
                     className={`
                       flex items-center gap-2 rounded-md
                       border px-3 py-2
-                      text-[9px]
+                      text-[15px]
                       ${
                         orderType === type
                           ? "border-[#FC8019] text-[#FC8019]"
@@ -136,7 +141,7 @@ export default function Checkout() {
             <div className="mt-6 grid grid-cols-1 gap-7 sm:grid-cols-2">
               {/* SUBSCRIPTION TYPE */}
               <div>
-                <p className="mb-4 text-[9px] font-medium">
+                <p className="mb-4 text-[15px] font-medium">
                   Type of subscription ?
                 </p>
 
@@ -147,7 +152,7 @@ export default function Checkout() {
                         key={type}
                         onClick={() => setSubscription(type)}
                         className={`
-                          border-b pb-2 text-[9px]
+                          border-b pb-2 text-[13px]
                           ${
                             subscription === type
                               ? "border-[#FC8019] text-[#FC8019]"
@@ -164,7 +169,7 @@ export default function Checkout() {
 
               {/* PLAN */}
               <div>
-                <p className="mb-4 text-[9px] font-medium">
+                <p className="mb-4 text-[13px] font-medium">
                   What's the plan?
                 </p>
 
@@ -175,7 +180,7 @@ export default function Checkout() {
                         key={item}
                         onClick={() => setPlan(item)}
                         className={`
-                          rounded-md border px-4 py-2 text-[9px]
+                          rounded-md border px-4 py-2 text-[13px]
                           ${
                             plan === item
                               ? "border-[#FC8019] text-[#FC8019]"
@@ -195,7 +200,7 @@ export default function Checkout() {
           {/* DELIVERY TIME + NOTE */}
           <div className="mt-7 grid grid-cols-1 gap-7 sm:grid-cols-2">
             <div>
-              <p className="mb-4 text-[9px] font-medium">
+              <p className="mb-4 text-[13px] font-medium">
                 What time do you want us to deliver?
               </p>
 
@@ -205,18 +210,18 @@ export default function Checkout() {
                   className="text-gray-500"
                 />
 
-                <span className="text-[9px] text-gray-500">
-                  16:30
+                <span className="text-[16px] text-gray-500">
+                  <input type="time" />
                 </span>
 
-                <span className="text-[9px] text-[#FC8019]">
+                <span className="text-[12px] text-[#FC8019]">
                   24 hrs
                 </span>
               </div>
             </div>
 
             <div>
-              <p className="mb-4 text-[9px] font-medium">
+              <p className="mb-4 text-[13px] font-medium">
                 Any Note for us?
               </p>
 
@@ -226,7 +231,7 @@ export default function Checkout() {
                   h-20 w-full max-w-70
                   resize-none rounded-md
                   border border-gray-400
-                  p-3 text-[9px]
+                  p-3 text-[12px]
                   outline-none
                   focus:border-[#FC8019]
                 "
@@ -235,22 +240,22 @@ export default function Checkout() {
           </div>
         </section>
 
-        {/* ================= RIGHT / CART ================= */}
+        {/*RIGHT / CART */}
         <aside
           className="
             w-full shrink-0
             rounded-md bg-[#f8f8f8]
             p-4
-            lg:w-64
+            lg:w-96
           "
         >
           {/* CART HEADER */}
           <div className="flex items-center justify-between">
-            <h2 className="text-[13px] font-medium">
+            <h2 className="text-[20px] font-medium">
               Cart
             </h2>
 
-            <span className="text-[8px] text-gray-600">
+            <span className="text-[13px] text-gray-600">
               {cart.length} Items
             </span>
           </div>
@@ -258,7 +263,7 @@ export default function Checkout() {
           {/* CART ITEMS */}
           <div className="mt-6">
             {cart.length === 0 ? (
-              <p className="py-5 text-[9px] text-gray-400">
+              <p className="py-5 text-[16px] text-gray-400">
                 Your cart is empty
               </p>
             ) : (
@@ -267,7 +272,7 @@ export default function Checkout() {
                   key={item.id}
                   className="mb-6"
                 >
-                  <p className="text-[8px] text-gray-500">
+                  <p className="text-[16px] text-gray-500">
                     from{" "}
                     <span className="text-[#FC8019]">
                       {item.cuisine || "Restaurant"}
@@ -280,7 +285,7 @@ export default function Checkout() {
                       src={item.image}
                       alt={item.name}
                       className="
-                        h-10 w-10
+                        h-20 w-20
                         shrink-0 rounded-md
                         object-cover
                       "
@@ -288,12 +293,12 @@ export default function Checkout() {
 
                     {/* DETAILS */}
                     <div className="min-w-0 flex-1">
-                      <p className="text-[9px] leading-3">
+                      <p className="text-[17px] leading-3">
                         {item.name}
                       </p>
 
-                      <p className="mt-1 text-[8px] text-gray-400">
-                        ₹{item.price}
+                      <p className="mt-1 text-[15px] text-gray-400">
+                        ${item.price}
                       </p>
                     </div>
 
@@ -303,12 +308,12 @@ export default function Checkout() {
                         onClick={() =>
                           decreaseQuantity(item.id)
                         }
-                        className="text-[11px] text-gray-500"
+                        className="text-[16px] font-bold text-black"
                       >
                         −
                       </button>
 
-                      <span className="text-[9px]">
+                      <span className="text-[13px]">
                         {item.quantity}
                       </span>
 
@@ -316,7 +321,7 @@ export default function Checkout() {
                         onClick={() =>
                           increaseQuantity(item.id)
                         }
-                        className="text-[11px] text-gray-500"
+                        className="text-[16px] font-bold text-black"
                       >
                         +
                       </button>
@@ -329,62 +334,62 @@ export default function Checkout() {
 
           {/* BILL DETAILS */}
           <div className="border-t border-gray-200 pt-4">
-            <p className="mb-3 text-[9px] text-gray-500">
+            <p className="mb-3 text-[20px] ">
               Bill details
             </p>
 
-            <div className="space-y-2 text-[8px]">
+            <div className="space-y-2 text-[14px]">
               <div className="flex justify-between">
                 <span>Item Total</span>
-                <span>₹{subtotal}</span>
+                <span>${subtotal}</span>
               </div>
 
               <div className="flex justify-between">
                 <span>Delivery Fee</span>
-                <span>₹{deliveryFee}</span>
+                <span>${deliveryFee}</span>
               </div>
 
               <div className="flex justify-between">
                 <span>Taxes and Charges</span>
-                <span>₹{taxes}</span>
+                <span>${taxes}</span>
               </div>
             </div>
           </div>
 
           {/* ORDER SUMMARY */}
           <div className="mt-5 border-t border-gray-200 pt-4">
-            <p className="text-[8px] text-gray-600">
+            <p className="text-[12px] text-gray-600">
               {subscription} + {plan}
             </p>
 
-            <p className="mt-1 text-[8px] text-gray-600">
+            <p className="mt-1 text-[13px] text-gray-600">
               16:30 Delivery time
             </p>
           </div>
 
           {/* TOTAL DETAILS */}
           <div className="mt-5 border-t border-gray-200 pt-4">
-            <div className="flex justify-between text-[8px]">
+            <div className="flex justify-between text-[14px]">
               <span>Total</span>
               <span>
-                ₹{totalBeforeDiscount}
+                ${totalBeforeDiscount}
               </span>
             </div>
 
-            <div className="mt-2 flex justify-between text-[8px]">
+            <div className="mt-2 flex justify-between text-[14px]">
               <span>Discount</span>
               <span className="text-green-600">
-                ₹{discount}
+                ${discount}
               </span>
             </div>
 
             <div className="mt-6 flex items-center justify-between">
-              <span className="text-[14px] font-semibold">
+              <span className="text-[20px] font-semibold">
                 Total
               </span>
 
               <span className="text-[14px] font-semibold">
-                ₹{total}
+                ${total}
               </span>
             </div>
           </div>

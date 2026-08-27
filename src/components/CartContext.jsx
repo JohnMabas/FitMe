@@ -1,24 +1,15 @@
-import {
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-
-  // ==========================================
   // ADD TO CART
-  // ==========================================
 
   function addToCart(recipe) {
     setCart((prevCart) => {
-      const existingItem = prevCart.find(
-        (item) => item.id === recipe.id
-      );
+      const existingItem = prevCart.find((item) => item.id === recipe.id);
 
       // Already in cart
       if (existingItem) {
@@ -28,7 +19,7 @@ export function CartProvider({ children }) {
                 ...item,
                 quantity: item.quantity + 1,
               }
-            : item
+            : item,
         );
       }
 
@@ -39,17 +30,13 @@ export function CartProvider({ children }) {
           ...recipe,
           quantity: 1,
 
-          // You can change this later
           price: 200,
         },
       ];
     });
   }
 
-
-  // ==========================================
   // INCREASE QUANTITY
-  // ==========================================
 
   function increaseQuantity(id) {
     setCart((prevCart) =>
@@ -59,15 +46,12 @@ export function CartProvider({ children }) {
               ...item,
               quantity: item.quantity + 1,
             }
-          : item
-      )
+          : item,
+      ),
     );
   }
 
-
-  // ==========================================
   // DECREASE QUANTITY
-  // ==========================================
 
   function decreaseQuantity(id) {
     setCart((prevCart) =>
@@ -78,42 +62,24 @@ export function CartProvider({ children }) {
                 ...item,
                 quantity: item.quantity - 1,
               }
-            : item
+            : item,
         )
-        .filter(
-          (item) => item.quantity > 0
-        )
+        .filter((item) => item.quantity > 0),
     );
   }
 
-
-  // ==========================================
   // TOTAL NUMBER OF ITEMS
-  // ==========================================
 
-  const totalItems = cart.reduce(
-    (total, item) =>
-      total + item.quantity,
-    0
-  );
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
-
-  // ==========================================
   // SUBTOTAL
-  // ==========================================
 
   const subtotal = cart.reduce(
-    (total, item) =>
-      total +
-      Number(item.price || 0) *
-        item.quantity,
-    0
+    (total, item) => total + Number(item.price || 0) * item.quantity,
+    0,
   );
 
-
-  // ==========================================
   // CONTEXT
-  // ==========================================
 
   return (
     <CartContext.Provider
@@ -136,10 +102,7 @@ export function CartProvider({ children }) {
   );
 }
 
-
-// ==========================================
 // USE CART
-// ==========================================
 
 export function useCart() {
   return useContext(CartContext);

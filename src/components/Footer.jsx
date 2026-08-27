@@ -1,7 +1,6 @@
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import logo from "../assets/image/FitMe-logo.png";
 
-
 export default function Footer() {
   return (
     <div>
@@ -16,7 +15,6 @@ export default function Footer() {
             <li>Deilery</li>
             <li>Help & Support</li>
             <li>T&C</li>
-
           </div>
           <span className="flex items-center gap-1">
             <span>Contact:</span>
@@ -25,9 +23,9 @@ export default function Footer() {
         </ul>
 
         <div className="flex justify-center items-center gap-3 mt-10">
-            <FaFacebookF/>
-            <FaInstagram/>
-            <FaTwitter/>
+          <FaFacebookF />
+          <FaInstagram />
+          <FaTwitter />
         </div>
       </footer>
     </div>
