@@ -70,7 +70,7 @@ function App() {
 
     {
       path: "/restaurant/:id",
-      element: <Restaurant recipes={recipes} />,
+      element: <Restaurant recipesItem={recipes} />,
     },
   ]);
 
