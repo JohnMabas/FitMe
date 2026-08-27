@@ -10,6 +10,7 @@ import { useParams, useNavigate } from "react-router";
 
 import NavBar from "./NavBar";
 import { useCart } from "./CartContext";
+import Footer from "./Footer";
 
 export default function Restaurant({ recipesItem = [] }) {
   const { id } = useParams();
@@ -29,10 +30,7 @@ export default function Restaurant({ recipesItem = [] }) {
     subtotal,
   } = useCart();
 
-  // -----------------------------------------
-  // Recipe not found
-  // -----------------------------------------
-
+  //  Recipe not found
   if (!recipe) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center">
@@ -67,26 +65,22 @@ export default function Restaurant({ recipesItem = [] }) {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* =========================================
-          NAVBAR
-      ========================================= */}
+      {/*NAVBAR */}
 
       <NavBar />
 
 
-      {/* =========================================
-          RESTAURANT HEADER
-      ========================================= */}
+      {/*RESTAURANT HEADE */}
 
       <section className="bg-[#202020] text-white">
 
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-7">
+        <div className="mx-auto w-full max-w-300 px-4 sm:px-6 lg:px-7">
 
           <div className="flex flex-col gap-5 py-5 md:flex-row md:items-center">
 
             {/* IMAGE */}
 
-            <div className="h-[125px] w-full shrink-0 overflow-hidden rounded-lg sm:w-[200px]">
+            <div className="h-31.25 w-full shrink-0 overflow-hidden rounded-lg sm:w-50">
 
               <img
                 src={recipe.image}
@@ -175,7 +169,7 @@ export default function Restaurant({ recipesItem = [] }) {
 
             {/* OFFERS */}
 
-            <div className="w-full shrink-0 rounded-xl border border-dashed border-[#FC8019] px-4 py-4 md:w-[250px]">
+            <div className="w-full shrink-0 rounded-xl border border-dashed border-[#FC8019] px-4 py-4 md:w-62.5">
 
               <h2 className="text-[13px] font-medium text-[#FC8019]">
                 Offers
@@ -188,7 +182,7 @@ export default function Restaurant({ recipesItem = [] }) {
                   <FaTag className="shrink-0 text-amber-300" />
 
                   <span>
-                    50% off up to ₹100 | Use code TRYNAV
+                    50% off up to $100 | Use code TRYNAV
                   </span>
 
                 </p>
@@ -214,7 +208,7 @@ export default function Restaurant({ recipesItem = [] }) {
 
           <div className="relative z-10 flex translate-y-5 items-center gap-3">
 
-            <div className="flex h-[38px] w-full max-w-[300px] items-center rounded-lg bg-white px-3 shadow-lg">
+            <div className="flex h-9.5 w-full max-w-75 items-center rounded-lg bg-white px-3 shadow-lg">
 
               <input
                 type="text"
@@ -233,7 +227,7 @@ export default function Restaurant({ recipesItem = [] }) {
             <button
               className="
                 flex
-                h-[38px]
+                h-9.5
                 shrink-0
                 items-center
                 gap-2
@@ -266,7 +260,7 @@ export default function Restaurant({ recipesItem = [] }) {
           CONTENT
       ========================================= */}
 
-      <main className="mx-auto w-full max-w-[1200px] px-4 pt-16 sm:px-6 lg:px-7">
+      <main className="mx-auto w-full max-w-300 mb-20 px-4 pt-16 sm:px-6 lg:px-7">
 
         <div className="flex flex-col lg:flex-row">
 
@@ -292,7 +286,7 @@ export default function Restaurant({ recipesItem = [] }) {
             "
           >
 
-            <h2 className="mb-4 text-[10px] font-medium text-[#FC8019]">
+            <h2 className="mb-4 text-[15px] font-medium text-[#FC8019]">
               Recommended
             </h2>
 
@@ -308,19 +302,19 @@ export default function Restaurant({ recipesItem = [] }) {
               "
             >
 
-              <button className="shrink-0 text-[10px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
+              <button className="shrink-0 text-[15px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
                 Breakfast Box
               </button>
 
-              <button className="shrink-0 text-[10px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
+              <button className="shrink-0 text-[15px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
                 Lunch Box
               </button>
 
-              <button className="shrink-0 text-[10px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
+              <button className="shrink-0 text-[15px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
                 Combo Box
               </button>
 
-              <button className="shrink-0 text-[10px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
+              <button className="shrink-0 text-[15px] text-gray-600 hover:text-[#FC8019] lg:block lg:w-full lg:text-left">
                 Biriyani Box
               </button>
 
@@ -329,9 +323,7 @@ export default function Restaurant({ recipesItem = [] }) {
           </aside>
 
 
-          {/* =====================================
-              FOOD MENU
-          ===================================== */}
+          {/*FOOD MENU*/}
 
           <section
             className="
@@ -348,14 +340,15 @@ export default function Restaurant({ recipesItem = [] }) {
 
               {/* FOOD DETAILS */}
 
-              <div className="max-w-[420px]">
+              <div className="max-w-105">
 
-                <h2 className="text-[13px] font-medium text-[#202020]">
-                  {recipe.name}
+                <h2 className="text-[16px] font-medium text-[#202020]">
+                  {recipe.name} <span>for 2 - Veg (Save upto Rs.45)</span>
+                  
                 </h2>
 
-                <p className="mt-3 text-[10px] font-medium text-black">
-                  ₹200
+                <p className="mt-3 text-[16px] font-medium text-black">
+                  $200
                 </p>
 
                 <p className="mt-3 text-[9px] leading-4 text-gray-400">
@@ -373,8 +366,8 @@ export default function Restaurant({ recipesItem = [] }) {
                   src={recipe.image}
                   alt={recipe.name}
                   className="
-                    h-[100px]
-                    w-[100px]
+                    h-25
+                    w-25
                     rounded-lg
                     object-cover
                   "
@@ -419,54 +412,18 @@ export default function Restaurant({ recipesItem = [] }) {
             </div>
 
 
-            {/* =====================================
-                CURRENT ITEM QUANTITY
-            ===================================== */}
+            {/*CURRENT ITEM QUANTITY*/}
 
-            {currentCartItem && (
-              <div className="mt-7 flex items-center gap-4">
-
-                <span className="text-[10px] text-gray-500">
-                  In cart:
-                </span>
-
-                <div className="flex items-center rounded-md border border-[#FC8019]">
-
-                  <button
-                    onClick={() =>
-                      decreaseQuantity(recipe.id)
-                    }
-                    className="px-3 py-1 text-[#FC8019]"
-                  >
-                    −
-                  </button>
-
-                  <span className="px-2 text-[10px]">
-                    {currentCartItem.quantity}
-                  </span>
-
-                  <button
-                    onClick={() =>
-                      increaseQuantity(recipe.id)
-                    }
-                    className="px-3 py-1 text-[#FC8019]"
-                  >
-                    +
-                  </button>
-
-                </div>
-
-              </div>
-            )}
+            <div>
+              <p className="text-sm mt-5 text-gray-400"> {recipe.name}: One meal to rule them all! Grab this mega saver combo with your choice of 2 veg wraps, Aloo Paratha (2 pcs), chole and Curd lunchbox and 2 choco lava cakes. This is just bliss on a plate!</p>
+            </div>
 
 
-            {/* =====================================
-                INGREDIENTS
-            ===================================== */}
+            {/*INGREDIENTS*/}
 
             <div className="mt-10">
 
-              <h3 className="text-[11px] font-medium">
+              <h3 className="text-[16px] font-medium">
                 Ingredients
               </h3>
 
@@ -477,7 +434,7 @@ export default function Restaurant({ recipesItem = [] }) {
 
                     <span
                       key={index}
-                      className="text-[9px] text-gray-400"
+                      className="text-[13px] text-gray-400"
                     >
                       • {ingredient}
                     </span>
@@ -492,9 +449,7 @@ export default function Restaurant({ recipesItem = [] }) {
           </section>
 
 
-          {/* =====================================
-              CART
-          ===================================== */}
+          {/*CART*/}
 
           <aside
             className="
@@ -503,7 +458,7 @@ export default function Restaurant({ recipesItem = [] }) {
               border-gray-200
               pt-7
 
-              lg:w-[280px]
+              lg:w-70
               lg:shrink-0
               lg:border-t-0
               lg:pt-0
@@ -591,7 +546,7 @@ export default function Restaurant({ recipesItem = [] }) {
                         </p>
 
                         <p className="mt-1 text-[9px] text-gray-400">
-                          ₹{item.price}
+                          ${item.price}
                         </p>
 
                       </div>
@@ -657,7 +612,7 @@ export default function Restaurant({ recipesItem = [] }) {
                 </div>
 
                 <span className="text-[13px] font-medium">
-                  ₹{subtotal}
+                  ${subtotal}
                 </span>
 
               </div>
@@ -694,6 +649,8 @@ export default function Restaurant({ recipesItem = [] }) {
         </div>
 
       </main>
+
+      <Footer />
 
     </div>
   );
