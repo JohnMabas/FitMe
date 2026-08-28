@@ -10,10 +10,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#FC8019] px-6 py-10 text-white sm:px-10 md:px-12 lg:px-16">
 
-      {/* =========================
-          MAIN FOOTER
-      ========================= */}
-
+  
       <div
         className="
           mx-auto
@@ -30,10 +27,6 @@ export default function Footer() {
           md:text-left
         "
       >
-
-        {/* =========================
-            LOGO
-        ========================= */}
 
         <div className="flex items-center gap-3">
 
@@ -57,11 +50,6 @@ export default function Footer() {
           </b>
 
         </div>
-
-
-        {/* =========================
-            LINKS
-        ========================= */}
 
         <ul
           className="
@@ -117,11 +105,6 @@ export default function Footer() {
 
         </ul>
 
-
-        {/* =========================
-            CONTACT
-        ========================= */}
-
         <div className="text-sm sm:text-base">
 
           <span>Contact: </span>
@@ -137,17 +120,7 @@ export default function Footer() {
 
       </div>
 
-
-      {/* =========================
-          DIVIDER
-      ========================= */}
-
-      <div className="mx-auto mt-8 max-w-7xl border-t border-white/30" />
-
-
-      {/* =========================
-          SOCIAL MEDIA
-      ========================= */}
+      <div className="mx-auto mt-8 max-w-7xl  border-white/30" />
 
       <div className="mt-7 flex justify-center gap-4">
 
