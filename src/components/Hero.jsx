@@ -21,7 +21,7 @@ const Hero = () => {
 
           <div className="space-y-4 min-w-0">
 
-            <div className="text-4xl sm:text-5xl font-bold leading-tight">
+            <div className="text-4xl max-md:text-center sm:text-5xl font-bold leading-tight">
 
               <span>
                 Premium <span className="text-amber-600">quality</span>
