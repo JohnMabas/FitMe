@@ -1,6 +1,6 @@
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
+import NavBar from "./NavBar";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -8,8 +8,7 @@ export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] =
-    useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -31,25 +30,27 @@ export default function Signup() {
       password,
     };
 
-    localStorage.setItem(
-      "foodAppUser",
-      JSON.stringify(user)
-    );
+    localStorage.setItem("foodAppUser", JSON.stringify(user));
 
     // After signup -> Login
     navigate("/login");
   };
 
   return (
+    <div className="min-h-screen">
+
+    {/* <NavBar /> */}
+
     <div
       className="
+        relative
         flex
-        min-h-screen
+        min-h-[calc(100vh-70px)]
         items-center
-        justify-center
         bg-cover
         bg-center
-        px-5
+        px-6
+        py-10
       "
       style={{
         backgroundImage:
@@ -57,213 +58,307 @@ export default function Signup() {
       }}
     >
 
-      {/* DARK OVERLAY */}
+      {/* BACKGROUND OVERLAY */}
 
       <div className="absolute inset-0 bg-black/60" />
 
 
-      {/* SIGNUP CARD */}
+      {/* MAIN CONTENT */}
 
       <div
         className="
           relative
           z-10
+          mx-auto
+          flex
           w-full
-          max-w-md
-          rounded-2xl
-          bg-white
-          p-7
-          shadow-2xl
+          max-w-6xl
+          items-center
+          justify-between
+          gap-12
         "
       >
 
-        {/* LOGO */}
+        {/* =========================
+            LEFT SIDE - DESCRIPTION
+        ========================= */}
 
-        <div className="mb-6 text-center">
+        <div className="hidden max-w-xl text-white lg:block">
 
-          <h1 className="text-3xl font-bold text-[#FC8019]">
-            Foodie
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#FC8019]">
+            Welcome to FitMe
+          </p>
+
+          <h1 className="text-5xl font-bold leading-tight">
+            Fresh food,
+            <br />
+            delivered to
+            <br />
+            <span className="text-[#FC8019]">
+              your doorstep.
+            </span>
           </h1>
 
-          <p className="mt-1 text-sm text-gray-500">
-            Create your account
+          <p className="mt-6 max-w-lg text-base leading-7 text-gray-200">
+            Discover delicious meals, explore amazing
+            restaurants, and order your favorite food
+            whenever you want. Create your FitMe account
+            and make your next meal just a few clicks away.
           </p>
+
+
+          {/* FEATURES */}
+
+          <div className="mt-8 space-y-4">
+
+            <div className="flex items-center gap-3">
+
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FC8019]">
+                ✓
+              </div>
+
+              <p className="text-sm text-gray-200">
+                Discover delicious meals
+              </p>
+
+            </div>
+
+
+            <div className="flex items-center gap-3">
+
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FC8019]">
+                ✓
+              </div>
+
+              <p className="text-sm text-gray-200">
+                Order from your favorite restaurants
+              </p>
+
+            </div>
+
+
+            <div className="flex items-center gap-3">
+
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FC8019]">
+                ✓
+              </div>
+
+              <p className="text-sm text-gray-200">
+                Schedule your meals with ease
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
 
-        {/* FORM */}
+        {/* =========================
+            RIGHT SIDE - SIGNUP FORM
+        ========================= */}
 
-        <form
-          onSubmit={handleSignup}
-          className="space-y-4"
+        <div
+          className="
+            w-full
+            max-w-md
+            rounded-2xl
+            bg-white
+            p-7
+            shadow-2xl
+            lg:p-8
+          "
         >
 
-          {/* NAME */}
+          {/* HEADER */}
 
-          <div>
+          <div className="mb-6 text-center">
 
-            <label className="mb-1 block text-sm font-medium">
-              Full Name
-            </label>
+            <h1 className="text-3xl font-bold text-[#FC8019]">
+              FitMe
+            </h1>
 
-            <input
-              type="text"
-              value={name}
-              onChange={(e) =>
-                setName(e.target.value)
-              }
-              placeholder="Enter your name"
-              className="
-                w-full
-                rounded-lg
-                border
-                border-gray-300
-                px-4
-                py-3
-                text-sm
-                outline-none
-                focus:border-[#FC8019]
-              "
-            />
+            <p className="mt-1 text-sm text-gray-500">
+              Create your account
+            </p>
 
           </div>
 
 
-          {/* EMAIL */}
+          {/* FORM */}
 
-          <div>
-
-            <label className="mb-1 block text-sm font-medium">
-              Email
-            </label>
-
-            <input
-              type="email"
-              value={email}
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
-              placeholder="Enter your email"
-              className="
-                w-full
-                rounded-lg
-                border
-                border-gray-300
-                px-4
-                py-3
-                text-sm
-                outline-none
-                focus:border-[#FC8019]
-              "
-            />
-
-          </div>
-
-
-          {/* PASSWORD */}
-
-          <div>
-
-            <label className="mb-1 block text-sm font-medium">
-              Password
-            </label>
-
-            <input
-              type="password"
-              value={password}
-              onChange={(e) =>
-                setPassword(e.target.value)
-              }
-              placeholder="Create a password"
-              className="
-                w-full
-                rounded-lg
-                border
-                border-gray-300
-                px-4
-                py-3
-                text-sm
-                outline-none
-                focus:border-[#FC8019]
-              "
-            />
-
-          </div>
-
-
-          {/* CONFIRM PASSWORD */}
-
-          <div>
-
-            <label className="mb-1 block text-sm font-medium">
-              Confirm Password
-            </label>
-
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) =>
-                setConfirmPassword(
-                  e.target.value
-                )
-              }
-              placeholder="Confirm your password"
-              className="
-                w-full
-                rounded-lg
-                border
-                border-gray-300
-                px-4
-                py-3
-                text-sm
-                outline-none
-                focus:border-[#FC8019]
-              "
-            />
-
-          </div>
-
-
-          {/* SIGNUP BUTTON */}
-
-          <button
-            type="submit"
-            className="
-              w-full
-              rounded-lg
-              bg-[#FC8019]
-              py-3
-              text-sm
-              font-semibold
-              text-white
-              transition
-              hover:bg-[#e87513]
-            "
+          <form
+            onSubmit={handleSignup}
+            className="space-y-4"
           >
-            Create Account
-          </button>
 
-        </form>
+            {/* NAME */}
+
+            <div>
+
+              <label className="mb-1 block text-sm font-medium">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                value={name}
+                onChange={(e) =>
+                  setName(e.target.value)
+                }
+                placeholder="Enter your name"
+                className="
+                  w-full
+                  rounded-lg
+                  border
+                  border-gray-300
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-[#FC8019]
+                "
+              />
+
+            </div>
 
 
-        {/* LOGIN */}
+            {/* EMAIL */}
 
-        <p className="mt-6 text-center text-sm text-gray-500">
+            <div>
 
-          Already have an account?{" "}
+              <label className="mb-1 block text-sm font-medium">
+                Email
+              </label>
 
-          <Link
-            to="/login"
-            className="font-semibold text-[#FC8019]"
-          >
-            Login
-          </Link>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) =>
+                  setEmail(e.target.value)
+                }
+                placeholder="Enter your email"
+                className="
+                  w-full
+                  rounded-lg
+                  border
+                  border-gray-300
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-[#FC8019]
+                "
+              />
 
-        </p>
+            </div>
+
+
+            {/* PASSWORD */}
+
+            <div>
+
+              <label className="mb-1 block text-sm font-medium">
+                Password
+              </label>
+
+              <input
+                type="password"
+                value={password}
+                onChange={(e) =>
+                  setPassword(e.target.value)
+                }
+                placeholder="Create a password"
+                className="
+                  w-full
+                  rounded-lg
+                  border
+                  border-gray-300
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-[#FC8019]
+                "
+              />
+
+            </div>
+
+
+            {/* CONFIRM PASSWORD */}
+
+            <div>
+
+              <label className="mb-1 block text-sm font-medium">
+                Confirm Password
+              </label>
+
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) =>
+                  setConfirmPassword(e.target.value)
+                }
+                placeholder="Confirm your password"
+                className="
+                  w-full
+                  rounded-lg
+                  border
+                  border-gray-300
+                  px-4
+                  py-3
+                  text-sm
+                  outline-none
+                  focus:border-[#FC8019]
+                "
+              />
+
+            </div>
+
+
+            {/* BUTTON */}
+
+            <button
+              type="submit"
+              className="
+                w-full
+                rounded-lg
+                bg-[#FC8019]
+                py-3
+                text-sm
+                font-semibold
+                text-white
+                transition
+                hover:bg-[#e87513]
+              "
+            >
+              Create Account
+            </button>
+
+          </form>
+
+
+          {/* LOGIN */}
+
+          <p className="mt-6 text-center text-sm text-gray-500">
+
+            Already have an account?{" "}
+
+            <Link
+              to="/login"
+              className="font-semibold text-[#FC8019]"
+            >
+              Login
+            </Link>
+
+          </p>
+
+        </div>
 
       </div>
 
     </div>
+
+  </div>
   );
 }

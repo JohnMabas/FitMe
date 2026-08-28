@@ -1,33 +1,166 @@
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
+
 import logo from "../assets/image/FitMe-logo.png";
 
 export default function Footer() {
   return (
-    <div>
-      <footer className="bg-[#FC8019] w-full p-20 text-white">
-        <ul className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="logo" className="bg-white" />
-            <b className="text-lg font-bold">FitMe</b>
-          </div>
-          <div className="flex justify-center items-center gap-10">
-            <li>About Us</li>
-            <li>Deilery</li>
-            <li>Help & Support</li>
-            <li>T&C</li>
-          </div>
-          <span className="flex items-center gap-1">
-            <span>Contact:</span>
-            <b>+911245667899</b>
-          </span>
+    <footer className="w-full bg-[#FC8019] px-6 py-10 text-white sm:px-10 md:px-12 lg:px-16">
+
+      {/* =========================
+          MAIN FOOTER
+      ========================= */}
+
+      <div
+        className="
+          mx-auto
+          flex
+          max-w-7xl
+          flex-col
+          items-center
+          gap-8
+          text-center
+
+          md:flex-row
+          md:items-start
+          md:justify-between
+          md:text-left
+        "
+      >
+
+        {/* =========================
+            LOGO
+        ========================= */}
+
+        <div className="flex items-center gap-3">
+
+          <img
+            src={logo}
+            alt="FitMe logo"
+            className="
+              h-10
+              w-10
+              rounded-md
+              bg-white
+              object-contain
+              p-1
+              sm:h-11
+              sm:w-11
+            "
+          />
+
+          <b className="text-lg font-bold sm:text-xl">
+            FitMe
+          </b>
+
+        </div>
+
+
+        {/* =========================
+            LINKS
+        ========================= */}
+
+        <ul
+          className="
+            flex
+            flex-wrap
+            justify-center
+            gap-x-6
+            gap-y-3
+            text-sm
+
+            sm:gap-x-8
+            sm:text-base
+
+            md:justify-start
+          "
+        >
+
+          <li>
+            <a
+              href="#"
+              className="transition hover:text-black"
+            >
+              About Us
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              className="transition hover:text-black"
+            >
+              Delivery
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              className="transition hover:text-black"
+            >
+              Help & Support
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#"
+              className="transition hover:text-black"
+            >
+              T&C
+            </a>
+          </li>
+
         </ul>
 
-        <div className="flex justify-center items-center gap-3 mt-10">
-          <FaFacebookF />
-          <FaInstagram />
-          <FaTwitter />
+
+        {/* =========================
+            CONTACT
+        ========================= */}
+
+        <div className="text-sm sm:text-base">
+
+          <span>Contact: </span>
+
+          <a
+            href="tel:+911245667899"
+            className="font-bold hover:text-black"
+          >
+            +91 1245667899
+          </a>
+
         </div>
-      </footer>
-    </div>
+
+      </div>
+
+
+      {/* =========================
+          DIVIDER
+      ========================= */}
+
+      <div className="mx-auto mt-8 max-w-7xl border-t border-white/30" />
+
+
+      {/* =========================
+          SOCIAL MEDIA
+      ========================= */}
+
+      <div className="mt-7 flex justify-center gap-4">
+
+       
+          <FaFacebookF size={16} />
+  
+          <FaInstagram size={16} />
+        
+          <FaTwitter size={16} />
+        
+
+      </div>
+
+    </footer>
   );
 }

@@ -1,64 +1,41 @@
 import { useState } from "react";
-import {
-  FaMapMarkerAlt,
-  FaCalendarAlt,
-  FaClock,
-} from "react-icons/fa";
+import { FaMapMarkerAlt, FaCalendarAlt, FaClock } from "react-icons/fa";
 
 import { useCart } from "./CartContext";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 export default function Checkout() {
-  const {
-    cart,
-    increaseQuantity,
-    decreaseQuantity,
-    subtotal,
-  } = useCart();
+  const { cart, increaseQuantity, decreaseQuantity, subtotal } = useCart();
 
-  // =========================
   // ORDER TYPE
-  // =========================
 
-  const [orderType, setOrderType] =
-    useState("Subscription");
+  const [orderType, setOrderType] = useState("Subscription");
 
   // Subscription
-  const [subscription, setSubscription] =
-    useState("Monthly");
+  const [subscription, setSubscription] = useState("Monthly");
 
-  const [plan, setPlan] =
-    useState("3-Days/Week");
+  const [plan, setPlan] = useState("3-Days/Week");
 
   // Schedule Order
-  const [deliveryDate, setDeliveryDate] =
-    useState("");
+  const [deliveryDate, setDeliveryDate] = useState("");
 
-  const [deliveryTime, setDeliveryTime] =
-    useState("");
+  const [deliveryTime, setDeliveryTime] = useState("");
 
   // Note
-  const [note, setNote] =
-    useState("");
+  const [note, setNote] = useState("");
 
-  // =========================
   // BILL
-  // =========================
 
   const deliveryFee = 131;
   const taxes = 20;
   const discount = 400;
 
-  const totalBeforeDiscount =
-    Number(subtotal) + deliveryFee + taxes;
+  const totalBeforeDiscount = Number(subtotal) + deliveryFee + taxes;
 
-  const total =
-    totalBeforeDiscount - discount;
+  const total = totalBeforeDiscount - discount;
 
-  // =========================
   // ORDER TYPE HANDLER
-  // =========================
 
   const handleOrderType = (type) => {
     setOrderType(type);
@@ -71,9 +48,7 @@ export default function Checkout() {
     }
   };
 
-  // =========================
   // PAYMENT
-  // =========================
 
   const handlePayment = () => {
     if (cart.length === 0) {
@@ -93,17 +68,13 @@ export default function Checkout() {
       }
     }
 
-    alert(`Payment of $${total} Successful`);
+    alert(`Payment of $${total} is Successful`);
   };
 
-  // =========================
   // FORMAT DATE
-  // =========================
 
   const formattedDate = deliveryDate
-    ? new Date(
-        `${deliveryDate}T00:00:00`
-      ).toLocaleDateString("en-IN", {
+    ? new Date(`${deliveryDate}T00:00:00`).toLocaleDateString("en-IN", {
         day: "numeric",
         month: "short",
         year: "numeric",
@@ -112,68 +83,33 @@ export default function Checkout() {
 
   return (
     <div className="min-h-screen bg-white text-[#202020]">
-
-      {/* =========================
-          NAVBAR
-      ========================= */}
-
       <NavBar />
 
-
-      {/* =========================
-          CHECKOUT CONTAINER
-      ========================= */}
+      {/*CHECKOUT CONTAIN */}
 
       <div className="px-5 py-5">
-
         {/* HEADER */}
 
         <header className="mx-auto max-w-300 border-b border-gray-300 pb-3">
-
-          <h1 className="text-[16px] font-semibold">
-            Secure Checkout
-          </h1>
-
+          <h1 className="text-[16px] font-semibold">Secure Checkout</h1>
         </header>
 
-
-        {/* =========================
-            MAIN
-        ========================= */}
+        {/* MAIN */}
 
         <main className="mx-auto flex max-w-300 flex-col gap-8 py-7 lg:flex-row">
-
-
-          {/* =========================
-              LEFT SIDE
-          ========================= */}
+          {/*LEFT SIDE*/}
 
           <section className="min-w-0 flex-1">
-
-
-            {/* =========================
-                DELIVERY ADDRESS
-            ========================= */}
+            {/*DELIVERY ADDRESS */}
 
             <div>
-
               <div className="mb-4 flex items-center gap-2">
+                <FaMapMarkerAlt size={14} className="text-[#FC8019]" />
 
-                <FaMapMarkerAlt
-                  size={14}
-                  className="text-[#FC8019]"
-                />
-
-                <h2 className="text-[17px] font-semibold">
-                  Delivery address
-                </h2>
-
+                <h2 className="text-[17px] font-semibold">Delivery address</h2>
               </div>
 
-
               <div className="flex flex-wrap gap-4">
-
-
                 {/* SELECTED ADDRESS */}
 
                 <button
@@ -188,16 +124,13 @@ export default function Checkout() {
                     sm:w-64
                   "
                 >
-
                   <FaMapMarkerAlt size={13} />
 
                   <p className="mt-3 text-[14px] leading-5">
-                    Dno. 12-34-12, YC Apartments, DOOR
-                    Colony, Hyderabad, Telangana
+                    Dno. 12-34-12, YC Apartments, DOOR Colony, Hyderabad,
+                    Telangana
                   </p>
-
                 </button>
-
 
                 {/* SECOND ADDRESS */}
 
@@ -214,59 +147,32 @@ export default function Checkout() {
                     sm:w-64
                   "
                 >
-
-                  <FaMapMarkerAlt
-                    size={13}
-                    className="text-gray-500"
-                  />
+                  <FaMapMarkerAlt size={13} className="text-gray-500" />
 
                   <p className="mt-3 text-[14px] leading-5 text-gray-600">
-                    Dno. 12-34-12, YC Apartments, DOOR
-                    Colony, Hyderabad, Telangana
+                    Dno. 12-34-12, YC Apartments, DOOR Colony, Hyderabad,
+                    Telangana
                   </p>
-
                 </button>
-
               </div>
-
             </div>
 
-
-            {/* =========================
-                TYPE OF ORDER
-            ========================= */}
+            {/*TYPE OF ORDER */}
 
             <div className="mt-8">
-
               <div className="mb-4 flex items-center gap-2">
+                <FaMapMarkerAlt size={14} className="text-[#FC8019]" />
 
-                <FaMapMarkerAlt
-                  size={14}
-                  className="text-[#FC8019]"
-                />
-
-                <h2 className="text-[16px] font-semibold">
-                  Type of Order
-                </h2>
-
+                <h2 className="text-[16px] font-semibold">Type of Order</h2>
               </div>
-
 
               {/* ORDER TYPE BUTTONS */}
 
               <div className="flex flex-wrap gap-3">
-
-                {[
-                  "Subscription",
-                  "Schedule Order",
-                  "Order Now",
-                ].map((type) => (
-
+                {["Subscription", "Schedule Order", "Order Now"].map((type) => (
                   <button
                     key={type}
-                    onClick={() =>
-                      handleOrderType(type)
-                    }
+                    onClick={() => handleOrderType(type)}
                     className={`
                       flex
                       items-center
@@ -285,49 +191,29 @@ export default function Checkout() {
                       }
                     `}
                   >
-
                     <FaCalendarAlt size={10} />
 
                     {type}
-
                   </button>
-
                 ))}
-
               </div>
 
-
-              {/* =========================
-                  SUBSCRIPTION OPTIONS
-              ========================= */}
+              {/*SUBSCRIPTION OPTIONS*/}
 
               {orderType === "Subscription" && (
-
                 <div className="mt-6 grid grid-cols-1 gap-7 sm:grid-cols-2">
-
-
                   {/* SUBSCRIPTION TYPE */}
 
                   <div>
-
                     <p className="mb-4 text-[15px] font-medium">
                       Type of subscription ?
                     </p>
 
-
                     <div className="flex gap-6">
-
-                      {[
-                        "Monthly",
-                        "Weekly",
-                        "Custom",
-                      ].map((type) => (
-
+                      {["Monthly", "Weekly", "Custom"].map((type) => (
                         <button
                           key={type}
-                          onClick={() =>
-                            setSubscription(type)
-                          }
+                          onClick={() => setSubscription(type)}
                           className={`
                             border-b
                             pb-2
@@ -342,35 +228,22 @@ export default function Checkout() {
                         >
                           {type}
                         </button>
-
                       ))}
-
                     </div>
-
                   </div>
-
 
                   {/* PLAN */}
 
                   <div>
-
                     <p className="mb-4 text-[13px] font-medium">
                       What's the plan?
                     </p>
 
-
                     <div className="flex gap-5">
-
-                      {[
-                        "3-Days/Week",
-                        "5-Days/Week",
-                      ].map((item) => (
-
+                      {["3-Days/Week", "5-Days/Week"].map((item) => (
                         <button
                           key={item}
-                          onClick={() =>
-                            setPlan(item)
-                          }
+                          onClick={() => setPlan(item)}
                           className={`
                             rounded-md
                             border
@@ -387,35 +260,22 @@ export default function Checkout() {
                         >
                           {item}
                         </button>
-
                       ))}
-
                     </div>
-
                   </div>
-
                 </div>
-
               )}
 
-
-              {/* =========================
-                  SCHEDULE ORDER
-              ========================= */}
+              {/*SCHEDULE ORDER */}
 
               {orderType === "Schedule Order" && (
-
                 <div className="mt-6 grid grid-cols-1 gap-7 sm:grid-cols-2">
-
-
                   {/* DATE */}
 
                   <div>
-
                     <p className="mb-4 text-[13px] font-medium">
                       Date of delivery
                     </p>
-
 
                     <div
                       className="
@@ -431,26 +291,13 @@ export default function Checkout() {
                         focus-within:border-[#FC8019]
                       "
                     >
-
-                      <FaCalendarAlt
-                        size={12}
-                        className="text-gray-500"
-                      />
-
+                      <FaCalendarAlt size={12} className="text-gray-500" />
 
                       <input
                         type="date"
                         value={deliveryDate}
-                        min={
-                          new Date()
-                            .toISOString()
-                            .split("T")[0]
-                        }
-                        onChange={(e) =>
-                          setDeliveryDate(
-                            e.target.value
-                          )
-                        }
+                        min={new Date().toISOString().split("T")[0]}
+                        onChange={(e) => setDeliveryDate(e.target.value)}
                         className="
                           w-full
                           bg-transparent
@@ -459,20 +306,15 @@ export default function Checkout() {
                           outline-none
                         "
                       />
-
                     </div>
-
                   </div>
-
 
                   {/* TIME */}
 
                   <div>
-
                     <p className="mb-4 text-[13px] font-medium">
                       Time of delivery
                     </p>
-
 
                     <div
                       className="
@@ -489,21 +331,12 @@ export default function Checkout() {
                         focus-within:border-[#FC8019]
                       "
                     >
-
-                      <FaClock
-                        size={12}
-                        className="text-gray-500"
-                      />
-
+                      <FaClock size={12} className="text-gray-500" />
 
                       <input
                         type="time"
                         value={deliveryTime}
-                        onChange={(e) =>
-                          setDeliveryTime(
-                            e.target.value
-                          )
-                        }
+                        onChange={(e) => setDeliveryTime(e.target.value)}
                         className="
                           w-full
                           bg-transparent
@@ -512,136 +345,76 @@ export default function Checkout() {
                           outline-none
                         "
                       />
-
                     </div>
-
                   </div>
-
                 </div>
-
               )}
 
-
-              {/* =========================
-                  ORDER NOW
-              ========================= */}
+              {/*ORDER NOW*/}
 
               {orderType === "Order Now" && (
-
                 <div className="mt-6">
-
                   <p className="text-[12px] text-gray-500">
-                    Your order will be prepared and
-                    delivered as soon as possible.
+                    Your order will be prepared and delivered as soon as
+                    possible.
                   </p>
-
                 </div>
-
               )}
-
             </div>
 
-
-            {/* =========================
-                DELIVERY INFORMATION + NOTE
-            ========================= */}
+            {/*DELIVERY INFORMATION + NOTE */}
 
             <div className="mt-7 grid grid-cols-1 gap-7 sm:grid-cols-2">
-
-
               {/* DELIVERY INFORMATION */}
 
               <div>
-
                 <p className="mb-4 text-[13px] font-medium">
-
                   {orderType === "Schedule Order"
                     ? "Scheduled delivery"
                     : "What time do you want us to deliver?"}
-
                 </p>
 
-
                 {orderType === "Schedule Order" ? (
-
                   <div className="text-[12px] text-gray-500">
-
-
                     {deliveryDate ? (
-
                       <div className="flex items-center gap-2">
-
                         <FaCalendarAlt size={11} />
 
-                        <span>
-                          {formattedDate}
-                        </span>
-
+                        <span>{formattedDate}</span>
                       </div>
-
                     ) : (
-
-                      <p className="text-gray-400">
-                        Select a delivery date
-                      </p>
-
+                      <p className="text-gray-400">Select a delivery date</p>
                     )}
-
 
                     {deliveryTime && (
-
                       <div className="mt-2 flex items-center gap-2">
-
                         <FaClock size={11} />
 
-                        <span>
-                          {deliveryTime}
-                        </span>
-
+                        <span>{deliveryTime}</span>
                       </div>
-
                     )}
-
                   </div>
-
                 ) : (
-
                   <div className="flex w-fit items-center gap-3 border-b border-gray-400 pb-2">
-
-                    <FaClock
-                      size={10}
-                      className="text-gray-500"
-                    />
+                    <FaClock size={10} className="text-gray-500" />
 
                     <span className="text-[16px] text-gray-500">
                       <input type="time" />
                     </span>
 
-                    <span className="text-[12px] text-[#FC8019]">
-                      24 hrs
-                    </span>
-
+                    <span className="text-[12px] text-[#FC8019]">24 hrs</span>
                   </div>
-
                 )}
-
               </div>
-
 
               {/* NOTE */}
 
               <div>
-
-                <p className="mb-4 text-[13px] font-medium">
-                  Any Note for us?
-                </p>
-
+                <p className="mb-4 text-[13px] font-medium">Any Note for us?</p>
 
                 <textarea
                   value={note}
-                  onChange={(e) =>
-                    setNote(e.target.value)
-                  }
+                  onChange={(e) => setNote(e.target.value)}
                   placeholder="Type your note here"
                   className="
                     h-20
@@ -657,17 +430,11 @@ export default function Checkout() {
                     focus:border-[#FC8019]
                   "
                 />
-
               </div>
-
             </div>
-
           </section>
 
-
-          {/* =========================
-              RIGHT CART
-          ========================= */}
+          {/* RIGHT CART */}
 
           <aside
             className="
@@ -679,55 +446,34 @@ export default function Checkout() {
               lg:w-96
             "
           >
-
             {/* CART HEADER */}
 
             <div className="flex items-center justify-between">
-
-              <h2 className="text-[20px] font-medium">
-                Cart
-              </h2>
+              <h2 className="text-[20px] font-medium">Cart</h2>
 
               <span className="text-[13px] text-gray-600">
                 {cart.length} Items
               </span>
-
             </div>
-
 
             {/* CART ITEMS */}
 
             <div className="mt-6">
-
               {cart.length === 0 ? (
-
                 <p className="py-5 text-[16px] text-gray-400">
                   Your cart is empty
                 </p>
-
               ) : (
-
                 cart.map((item) => (
-
-                  <div
-                    key={item.id}
-                    className="mb-6"
-                  >
-
+                  <div key={item.id} className="mb-6">
                     <p className="text-[12px] text-gray-500">
-
                       from{" "}
-
                       <span className="text-[#FC8019]">
                         {item.cuisine || "Restaurant"}
                       </span>
-
                     </p>
 
-
                     <div className="mt-2 flex gap-2">
-
-
                       {/* IMAGE */}
 
                       <img
@@ -742,32 +488,21 @@ export default function Checkout() {
                         "
                       />
 
-
                       {/* DETAILS */}
 
                       <div className="min-w-0 flex-1">
-
-                        <p className="text-[15px] leading-5">
-                          {item.name}
-                        </p>
+                        <p className="text-[15px] leading-5">{item.name}</p>
 
                         <p className="mt-1 text-[13px] text-gray-400">
                           ${item.price}
                         </p>
-
                       </div>
-
 
                       {/* QUANTITY */}
 
                       <div className="flex items-center gap-2">
-
                         <button
-                          onClick={() =>
-                            decreaseQuantity(
-                              item.id
-                            )
-                          }
+                          onClick={() => decreaseQuantity(item.id)}
                           className="
                             text-[16px]
                             font-bold
@@ -778,18 +513,10 @@ export default function Checkout() {
                           −
                         </button>
 
-
-                        <span className="text-[13px]">
-                          {item.quantity}
-                        </span>
-
+                        <span className="text-[13px]">{item.quantity}</span>
 
                         <button
-                          onClick={() =>
-                            increaseQuantity(
-                              item.id
-                            )
-                          }
+                          onClick={() => increaseQuantity(item.id)}
                           className="
                             text-[16px]
                             font-bold
@@ -799,187 +526,98 @@ export default function Checkout() {
                         >
                           +
                         </button>
-
                       </div>
-
                     </div>
-
                   </div>
-
                 ))
-
               )}
-
             </div>
 
-
-            {/* =========================
-                BILL DETAILS
-            ========================= */}
+            {/* BILL DETAILS */}
 
             <div className="border-t border-gray-200 pt-4">
-
-              <p className="mb-3 text-[20px]">
-                Bill details
-              </p>
-
+              <p className="mb-3 text-[20px]">Bill details</p>
 
               <div className="space-y-2 text-[14px]">
-
                 <div className="flex justify-between">
+                  <span>Item Total</span>
 
-                  <span>
-                    Item Total
-                  </span>
-
-                  <span>
-                    ${subtotal}
-                  </span>
-
+                  <span>${subtotal}</span>
                 </div>
 
-
                 <div className="flex justify-between">
+                  <span>Delivery Fee</span>
 
-                  <span>
-                    Delivery Fee
-                  </span>
-
-                  <span>
-                    ${deliveryFee}
-                  </span>
-
+                  <span>${deliveryFee}</span>
                 </div>
 
-
                 <div className="flex justify-between">
+                  <span>Taxes and Charges</span>
 
-                  <span>
-                    Taxes and Charges
-                  </span>
-
-                  <span>
-                    ${taxes}
-                  </span>
-
+                  <span>${taxes}</span>
                 </div>
-
               </div>
-
             </div>
 
-
-            {/* =========================
-                ORDER SUMMARY
-            ========================= */}
+            {/* ORDER SUMMARY */}
 
             <div className="mt-5 border-t border-gray-200 pt-4">
-
-
               {/* SUBSCRIPTION */}
 
               {orderType === "Subscription" && (
-
                 <>
                   <p className="text-[12px] text-gray-600">
                     {subscription} + {plan}
                   </p>
-
-                
                 </>
-
               )}
-
 
               {/* SCHEDULE */}
 
               {orderType === "Schedule Order" && (
-
                 <>
-
-                  <p className="text-[12px] text-gray-600">
-                    Schedule Order
-                  </p>
+                  <p className="text-[12px] text-gray-600">Schedule Order</p>
 
                   <p className="mt-2 text-[13px] text-gray-600">
-                    {formattedDate ||
-                      "Date not selected"}
+                    {formattedDate || "Date not selected"}
                   </p>
 
                   <p className="mt-1 text-[13px] text-gray-600">
-                    {deliveryTime ||
-                      "Time not selected"}
+                    {deliveryTime || "Time not selected"}
                   </p>
-
                 </>
-
               )}
-
 
               {/* ORDER NOW */}
 
               {orderType === "Order Now" && (
-
-                <p className="text-[12px] text-gray-600">
-                  Order Now
-                </p>
-
+                <p className="text-[12px] text-gray-600">Order Now</p>
               )}
-
             </div>
 
-
-            {/* =========================
-                TOTAL
-            ========================= */}
+            {/* TOTAL */}
 
             <div className="mt-5 border-t border-gray-200 pt-4">
-
-
               <div className="flex justify-between text-[14px]">
+                <span>Total</span>
 
-                <span>
-                  Total
-                </span>
-
-                <span>
-                  ${totalBeforeDiscount}
-                </span>
-
+                <span>${totalBeforeDiscount}</span>
               </div>
-
 
               <div className="mt-2 flex justify-between text-[14px]">
+                <span>Discount</span>
 
-                <span>
-                  Discount
-                </span>
-
-                <span className="text-green-600">
-                  ${discount}
-                </span>
-
+                <span className="text-green-600">${discount}</span>
               </div>
-
 
               <div className="mt-6 flex items-center justify-between">
+                <span className="text-[20px] font-semibold">Total</span>
 
-                <span className="text-[20px] font-semibold">
-                  Total
-                </span>
-
-                <span className="text-[20px] font-semibold">
-                  ${total}
-                </span>
-
+                <span className="text-[20px] font-semibold">${total}</span>
               </div>
-
             </div>
 
-
-            {/* =========================
-                PAYMENT BUTTON
-            ========================= */}
+            {/* PAYMENT BUTTON */}
 
             <button
               disabled={cart.length === 0}
@@ -1001,18 +639,13 @@ export default function Checkout() {
             >
               Proceed To Payment
             </button>
-
           </aside>
-
         </main>
-
       </div>
-
 
       {/* FOOTER */}
 
       <Footer />
-
     </div>
   );
 }

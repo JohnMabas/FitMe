@@ -15,7 +15,7 @@ export default function Cards({
   return (
     <div
       onClick={() => Display(id)}
-      className="w-full cursor-pointer rounded-lg bg-[#f7f7f7] p-3 transition-all duration-200 hover:shadow-md"
+      className=" img w-full cursor-pointer rounded-lg bg-[#f7f7f7] p-3 transition-all duration-200 hover:shadow-md"
     >
       <div className="aspect-square w-full overflow-hidden rounded-md">
         <img

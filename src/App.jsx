@@ -17,7 +17,6 @@ import Footer from "./components/Footer";
 import SearchResults from "./components/SearchResults";
 import Restaurant from "./components/Restaurant";
 import Checkout from "./components/Checkout";
-
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 
@@ -43,10 +42,6 @@ function Home({ recipes }) {
 }
 
 
-// ==============================
-// PROTECTED ROUTE
-// ==============================
-
 function ProtectedRoute({ children }) {
   const isLoggedIn =
     localStorage.getItem("foodAppLoggedIn") === "true";
@@ -61,11 +56,6 @@ function ProtectedRoute({ children }) {
 
 function App() {
   const [recipes, setRecipes] = useState([]);
-
-
-  // ==============================
-  // FETCH RECIPES
-  // ==============================
 
   useEffect(() => {
     async function getRecipes() {
@@ -88,18 +78,13 @@ function App() {
   }, []);
 
 
-  // ==============================
-  // ROUTER
-  // ==============================
+ 
 
   const router = createBrowserRouter([
     
-    // ==========================
-    // AUTH
-    // ==========================
-
+  
     {
-      path: "/signup",
+      path: "/",
       element: <Signup />,
     },
 
@@ -108,25 +93,14 @@ function App() {
       element: <Login />,
     },
 
-
-    // ==========================
-    // HOME
-    // ==========================
-
     {
-      path: "/",
+      path: "/home",
       element: (
         <ProtectedRoute>
           <Home recipes={recipes} />
         </ProtectedRoute>
       ),
     },
-
-
-    // ==========================
-    // SEARCH
-    // ==========================
-
     {
       path: "/search",
       element: (
