@@ -116,7 +116,10 @@ export default function Checkout() {
                   className="
                     w-full
                     rounded-md
-                    bg-[#FC8019]
+                    border
+                    hover:bg-[#FC8019]
+                    border-[#FC8019]
+                    border-dashed
                     p-4
                     text-left
                     text-white
@@ -124,9 +127,9 @@ export default function Checkout() {
                     sm:w-64
                   "
                 >
-                  <FaMapMarkerAlt size={13} />
+                  <FaMapMarkerAlt size={13} className="text-gray-500 " />
 
-                  <p className="mt-3 text-[14px] leading-5">
+                  <p className="mt-3 text-[14px] text-gray-500 leading-5">
                     Dno. 12-34-12, YC Apartments, DOOR Colony, Hyderabad,
                     Telangana
                   </p>
@@ -138,6 +141,7 @@ export default function Checkout() {
                   className="
                     w-full
                     rounded-md
+                    hover:bg-[#FC8019]
                     border
                     border-dashed
                     border-[#FC8019]
@@ -202,7 +206,6 @@ export default function Checkout() {
 
               {orderType === "Subscription" && (
                 <div className="mt-6 grid grid-cols-1 gap-7 sm:grid-cols-2">
-                  {/* SUBSCRIPTION TYPE */}
 
                   <div>
                     <p className="mb-4 text-[15px] font-medium">
@@ -288,7 +291,6 @@ export default function Checkout() {
                         border-gray-300
                         px-3
                         py-3
-                        focus-within:border-[#FC8019]
                       "
                     >
                       <FaCalendarAlt size={12} className="text-gray-500" />
@@ -328,7 +330,6 @@ export default function Checkout() {
                         border-gray-300
                         px-3
                         py-3
-                        focus-within:border-[#FC8019]
                       "
                     >
                       <FaClock size={12} className="text-gray-500" />
@@ -362,7 +363,6 @@ export default function Checkout() {
               )}
             </div>
 
-            {/*DELIVERY INFORMATION + NOTE */}
 
             <div className="mt-7 grid grid-cols-1 gap-7 sm:grid-cols-2">
               {/* DELIVERY INFORMATION */}
@@ -427,7 +427,6 @@ export default function Checkout() {
                     p-3
                     text-[12px]
                     outline-none
-                    focus:border-[#FC8019]
                   "
                 />
               </div>
