@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   RouterProvider,
+  Navigate,
 } from "react-router";
 
 import "./App.css";
@@ -16,6 +17,9 @@ import Footer from "./components/Footer";
 import SearchResults from "./components/SearchResults";
 import Restaurant from "./components/Restaurant";
 import Checkout from "./components/Checkout";
+
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 
 
 function Home({ recipes }) {
@@ -39,51 +43,133 @@ function Home({ recipes }) {
 }
 
 
+// ==============================
+// PROTECTED ROUTE
+// ==============================
+
+function ProtectedRoute({ children }) {
+  const isLoggedIn =
+    localStorage.getItem("foodAppLoggedIn") === "true";
+
+  if (!isLoggedIn) {
+    return <Navigate to="/signup" replace />;
+  }
+
+  return children;
+}
+
+
 function App() {
   const [recipes, setRecipes] = useState([]);
+
+
+  // ==============================
+  // FETCH RECIPES
+  // ==============================
 
   useEffect(() => {
     async function getRecipes() {
       try {
-        const res = await fetch("https://dummyjson.com/recipes");
+        const res = await fetch(
+          "https://dummyjson.com/recipes"
+        );
+
         const data = await res.json();
 
         setRecipes(data.recipes);
+
       } catch (error) {
         console.log(error.message);
       }
     }
 
     getRecipes();
+
   }, []);
 
 
+  // ==============================
+  // ROUTER
+  // ==============================
+
   const router = createBrowserRouter([
+    
+    // ==========================
+    // AUTH
+    // ==========================
+
+    {
+      path: "/signup",
+      element: <Signup />,
+    },
+
+    {
+      path: "/login",
+      element: <Login />,
+    },
+
+
+    // ==========================
+    // HOME
+    // ==========================
+
     {
       path: "/",
-      element: <Home recipes={recipes} />,
+      element: (
+        <ProtectedRoute>
+          <Home recipes={recipes} />
+        </ProtectedRoute>
+      ),
     },
+
+
+    // ==========================
+    // SEARCH
+    // ==========================
 
     {
       path: "/search",
-      element: <SearchResults recipes={recipes} />,
+      element: (
+        <ProtectedRoute>
+          <SearchResults recipes={recipes} />
+        </ProtectedRoute>
+      ),
     },
+
+
+    // ==========================
+    // RESTAURANT
+    // ==========================
 
     {
       path: "/restaurant/:id",
-      element: <Restaurant recipesItem={recipes} />,
+      element: (
+        <ProtectedRoute>
+          <Restaurant recipesItem={recipes} />
+        </ProtectedRoute>
+      ),
     },
+
+
+    // ==========================
+    // CHECKOUT
+    // ==========================
+
     {
-  path: "/checkout",
-  element: <Checkout/>
-},
+      path: "/checkout",
+      element: (
+        <ProtectedRoute>
+          <Checkout />
+        </ProtectedRoute>
+      ),
+    },
+
   ]);
 
 
-  return(
+  return (
     <RouterProvider router={router} />
-
-  ) 
+  );
 }
 
 
