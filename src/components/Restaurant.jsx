@@ -10,14 +10,11 @@ export default function Restaurant({ recipesItem = [] }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Get selected recipe from App.jsx props
   const recipe = recipesItem.find((item) => item.id === Number(id));
 
-  // Cart
   const { cart, addToCart, increaseQuantity, decreaseQuantity, subtotal } =
     useCart();
 
-  //  Recipe not found
   if (!recipe) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center">
@@ -38,21 +35,17 @@ export default function Restaurant({ recipesItem = [] }) {
 
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
-  // Check if current recipe is already in cart
   const currentCartItem = cart.find((item) => item.id === recipe.id);
 
   return (
     <div className="min-h-screen bg-white">
-      {/*NAVBAR */}
 
       <NavBar />
 
-      {/*RESTAURANT HEADE */}
 
       <section className="bg-[#202020] text-white">
         <div className="mx-auto w-full max-w-300 px-4 sm:px-6 lg:px-7">
           <div className="flex flex-col gap-5 py-5 md:flex-row md:items-center">
-            {/* IMAGE */}
 
             <div className="h-31.25 w-full shrink-0 overflow-hidden rounded-lg sm:w-50">
               <img
@@ -61,8 +54,6 @@ export default function Restaurant({ recipesItem = [] }) {
                 className="h-full w-full object-cover"
               />
             </div>
-
-            {/* RESTAURANT INFORMATION */}
 
             <div className="min-w-0 flex-1">
               <h1 className="text-[18px] font-bold sm:text-[20px]">
@@ -73,10 +64,8 @@ export default function Restaurant({ recipesItem = [] }) {
                 {recipe.cuisine}, {recipe.tags?.[0] || "food"}
               </p>
 
-              {/* INFORMATION */}
 
               <div className="mt-4 flex items-center">
-                {/* RATING */}
 
                 <div className="border-r border-gray-600 pr-5 sm:pr-7">
                   <div className="flex items-center gap-1">
@@ -90,7 +79,6 @@ export default function Restaurant({ recipesItem = [] }) {
                   </p>
                 </div>
 
-                {/* DELIVERY TIME */}
 
                 <div className="border-r border-gray-600 px-5 sm:px-7">
                   <p className="text-[11px]">{deliveryTime} Mins</p>
@@ -98,7 +86,6 @@ export default function Restaurant({ recipesItem = [] }) {
                   <p className="mt-1 text-[9px] text-gray-400">Delivery Time</p>
                 </div>
 
-                {/* COST */}
 
                 <div className="pl-5 sm:pl-7">
                   <p className="text-[11px]">₹200</p>
@@ -107,8 +94,6 @@ export default function Restaurant({ recipesItem = [] }) {
                 </div>
               </div>
             </div>
-
-            {/* OFFERS */}
 
             <div className="w-full shrink-0 rounded-xl border border-dashed border-[#FC8019] px-4 py-4 md:w-62.5">
               <h2 className="text-[13px] font-medium text-[#FC8019]">Offers</h2>
@@ -129,7 +114,6 @@ export default function Restaurant({ recipesItem = [] }) {
             </div>
           </div>
 
-          {/* SEARCH + FAVOURITE */}
 
           <div className="relative z-10 flex translate-y-5 items-center gap-3">
             <div className="flex h-9.5 w-full max-w-75 items-center rounded-lg bg-white px-3 shadow-lg">
@@ -166,11 +150,9 @@ export default function Restaurant({ recipesItem = [] }) {
         </div>
       </section>
 
-      {/*CONTENT */}
 
       <main className="mx-auto w-full max-w-300 mb-20 px-4 pt-16 sm:px-6 lg:px-7">
         <div className="flex flex-col lg:flex-row">
-          {/*LEFT MEN */}
 
           <aside
             className="
@@ -220,20 +202,17 @@ export default function Restaurant({ recipesItem = [] }) {
             </div>
           </aside>
 
-          {/*FOOD MENU*/}
 
           <section
             className="
               w-full
               py-7
-
               lg:flex-1
               lg:px-8
               lg:py-0
             "
           >
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-              {/* FOOD DETAILS */}
 
               <div className="max-w-105">
                 <h2 className="text-[16px] font-medium text-[#202020]">
@@ -247,8 +226,6 @@ export default function Restaurant({ recipesItem = [] }) {
                 </p>
               </div>
 
-              {/* IMAGE + ADD */}
-
               <div className="relative mx-auto shrink-0 sm:mx-0">
                 <img
                   src={recipe.image}
@@ -260,8 +237,6 @@ export default function Restaurant({ recipesItem = [] }) {
                     object-cover
                   "
                 />
-
-                {/* ADD BUTTON */}
 
                 <button
                   onClick={() => addToCart(recipe)}
@@ -293,8 +268,6 @@ export default function Restaurant({ recipesItem = [] }) {
               </div>
             </div>
 
-            {/*CURRENT ITEM QUANTITY*/}
-
             <div>
               <p className="text-sm mt-5 text-gray-400">
                 {" "}
@@ -305,7 +278,6 @@ export default function Restaurant({ recipesItem = [] }) {
               </p>
             </div>
 
-            {/*INGREDIENTS*/}
 
             <div className="mt-10">
               <h3 className="text-[16px] font-medium">Ingredients</h3>
@@ -320,7 +292,6 @@ export default function Restaurant({ recipesItem = [] }) {
             </div>
           </section>
 
-          {/*CART*/}
 
           <aside
             className="
@@ -335,7 +306,6 @@ export default function Restaurant({ recipesItem = [] }) {
               lg:pt-0
             "
           >
-            {/* CART HEADER */}
 
             <div className="flex items-center justify-between">
               <h2 className="text-[14px] font-medium text-[#202020]">Cart</h2>
@@ -345,7 +315,6 @@ export default function Restaurant({ recipesItem = [] }) {
               </span>
             </div>
 
-            {/* CART ITEMS */}
 
             <div className="mt-7">
               {cart.length === 0 ? (
@@ -370,7 +339,6 @@ export default function Restaurant({ recipesItem = [] }) {
                       </span>
                     </p>
 
-                    {/* ITEM */}
 
                     <div className="mt-2 flex items-start gap-3">
                       <img
@@ -385,7 +353,6 @@ export default function Restaurant({ recipesItem = [] }) {
                         "
                       />
 
-                      {/* NAME */}
 
                       <div className="min-w-0 flex-1">
                         <p className="text-[10px] leading-4 text-[#202020]">
@@ -397,7 +364,6 @@ export default function Restaurant({ recipesItem = [] }) {
                         </p>
                       </div>
 
-                      {/* QUANTITY */}
 
                       <div className="flex shrink-0 items-center gap-3 pt-1">
                         <button
@@ -422,7 +388,6 @@ export default function Restaurant({ recipesItem = [] }) {
               )}
             </div>
 
-            {/*SUBTOTAL*/}
 
             <div className="mt-8 border-t border-gray-100 pt-5">
               <div className="flex items-center justify-between">
@@ -437,7 +402,6 @@ export default function Restaurant({ recipesItem = [] }) {
                 <span className="text-[13px] font-medium">${subtotal}</span>
               </div>
 
-              {/* CHECKOUT */}
 
               <button
                 disabled={cart.length === 0}
