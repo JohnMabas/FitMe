@@ -2,12 +2,22 @@ import Bananna from "../assets/image/bananna.png";
 import Apple from "../assets/image/apple.png";
 import Bg1 from "../assets/image/FitFood-bg1.png";
 import Bg2 from "../assets/image/FitFood-bg2.png";
+import sideBg from "../assets/image/side-bg.png"
 
 const Hero = () => {
   return (
     <>
-      <div className="w-full max-w-full overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-5 m-4 sm:m-6 lg:m-10">
+      <div className="relative w-full max-w-full overflow-hidden">
+
+        {/* Decorative side background blob */}
+        <img className=" absolute top-1/2 -left-16 sm:-left-20 md:-left-24 lg:-left-28
+                     -translate-y-1/2 w-40 h-64 sm:w-52 sm:h-80 md:w-64 md:h-96 lg:w-72 
+                      blur-[1px] -z-10" src={sideBg} alt="" />
+        <div
+          
+        />
+
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 justify-center items-center gap-5 m-4 sm:m-6 lg:m-10">
 
           <div className="space-y-4 min-w-0">
 
@@ -72,7 +82,7 @@ const Hero = () => {
 
           </div>
 
-          <div className="flex items-center justify-center gap-2 sm:gap-4 w-full min-w-0">
+          <div className="relative flex items-center justify-center gap-2 sm:gap-4 w-full min-w-0">
 
             <img
               src={Bg1}

@@ -179,7 +179,7 @@ export default function Restaurant({ recipesItem = [] }) {
               border-gray-200
               pb-5
 
-              lg:w-[150px]
+              lg:w-37.5
               lg:shrink-0
               lg:border-b-0
               lg:border-r
