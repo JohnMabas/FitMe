@@ -166,15 +166,11 @@ export default function Restaurant({ recipesItem = [] }) {
         </div>
       </section>
 
-      {/* =========================================
-          CONTENT
-      ========================================= */}
+      {/*CONTENT */}
 
       <main className="mx-auto w-full max-w-300 mb-20 px-4 pt-16 sm:px-6 lg:px-7">
         <div className="flex flex-col lg:flex-row">
-          {/* =====================================
-              LEFT MENU
-          ===================================== */}
+          {/*LEFT MEN */}
 
           <aside
             className="
@@ -426,9 +422,7 @@ export default function Restaurant({ recipesItem = [] }) {
               )}
             </div>
 
-            {/* =====================================
-                SUBTOTAL
-            ===================================== */}
+            {/*SUBTOTAL*/}
 
             <div className="mt-8 border-t border-gray-100 pt-5">
               <div className="flex items-center justify-between">
