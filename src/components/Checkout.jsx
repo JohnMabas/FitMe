@@ -93,7 +93,7 @@ export default function Checkout() {
       }
     }
 
-    alert("Checkout details are ready for payment!");
+    alert(`Payment of $${total} Successful`);
   };
 
   // =========================
@@ -424,8 +424,7 @@ export default function Checkout() {
                         max-w-70
                         items-center
                         gap-3
-                        rounded-md
-                        border
+                        border-b 
                         border-gray-300
                         px-3
                         py-3
@@ -483,7 +482,7 @@ export default function Checkout() {
                         items-center
                         gap-3
                         rounded-md
-                        border
+                        border-b
                         border-gray-300
                         px-3
                         py-3
@@ -615,7 +614,7 @@ export default function Checkout() {
                     />
 
                     <span className="text-[16px] text-gray-500">
-                      16:30
+                      <input type="time" />
                     </span>
 
                     <span className="text-[12px] text-[#FC8019]">
@@ -886,9 +885,7 @@ export default function Checkout() {
                     {subscription} + {plan}
                   </p>
 
-                  <p className="mt-1 text-[13px] text-gray-600">
-                    16:30 Delivery time
-                  </p>
+                
                 </>
 
               )}
