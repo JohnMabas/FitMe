@@ -24,13 +24,12 @@ export default function SearchResults({ recipes }) {
       <NavBar />
 
       <main className="flex-1 px-4 py-6 sm:px-6 md:px-8 lg:px-10">
-        {/* Header */}
+
         <div className="space-y-4">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold">
             Search Results for "{query}"
           </h1>
 
-          {/* Filter Buttons */}
           <div className="flex flex-wrap items-center gap-3">
             <button className="bg-[#FC8019] px-5 py-2 rounded-2xl text-white text-sm sm:text-base">
               Dishes
@@ -42,7 +41,6 @@ export default function SearchResults({ recipes }) {
           </div>
         </div>
 
-        {/* Results */}
         <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {results.length === 0 ? (
             <p className="col-span-full text-gray-500 text-center py-10">
@@ -55,14 +53,12 @@ export default function SearchResults({ recipes }) {
                 onClick={() => openRestaurant(recipe.id)}
                 className="cursor-pointer flex items-center gap-3 p-3 sm:p-4 bg-gray-100 rounded-lg w-full min-w-0 hover:shadow-md transition-shadow duration-200"
               >
-                {/* Image */}
                 <img
                   className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-lg object-cover shrink-0"
                   src={recipe.image}
                   alt={recipe.name}
                 />
 
-                {/* Content */}
                 <div className="min-w-0 flex-1">
                   <h2 className="font-bold text-sm sm:text-base md:text-lg truncate">
                     {recipe.name}
@@ -72,7 +68,6 @@ export default function SearchResults({ recipes }) {
                     {recipe.tags?.[1] || recipe.tags?.[0] || ""}
                   </span>
 
-                  {/* Recipe Info */}
                   <div className="flex flex-wrap items-center gap-3 sm:gap-5 mt-3 text-xs sm:text-sm">
                     <span className="flex items-center gap-1.5">
                       <img

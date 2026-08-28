@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import NavBar from "./NavBar";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ export default function Signup() {
       return;
     }
 
-    // Save signup information locally
     const user = {
       name,
       email,
@@ -32,14 +30,12 @@ export default function Signup() {
 
     localStorage.setItem("foodAppUser", JSON.stringify(user));
 
-    // After signup -> Login
     navigate("/login");
   };
 
   return (
     <div className="min-h-screen">
 
-    {/* <NavBar /> */}
 
     <div
       className="
@@ -58,12 +54,7 @@ export default function Signup() {
       }}
     >
 
-      {/* BACKGROUND OVERLAY */}
-
       <div className="absolute inset-0 bg-black/60" />
-
-
-      {/* MAIN CONTENT */}
 
       <div
         className="
@@ -78,10 +69,6 @@ export default function Signup() {
           gap-12
         "
       >
-
-        {/* =========================
-            LEFT SIDE - DESCRIPTION
-        ========================= */}
 
         <div className="hidden max-w-xl text-white lg:block">
 
@@ -105,9 +92,6 @@ export default function Signup() {
             whenever you want. Create your FitMe account
             and make your next meal just a few clicks away.
           </p>
-
-
-          {/* FEATURES */}
 
           <div className="mt-8 space-y-4">
 
@@ -153,11 +137,6 @@ export default function Signup() {
 
         </div>
 
-
-        {/* =========================
-            RIGHT SIDE - SIGNUP FORM
-        ========================= */}
-
         <div
           className="
             w-full
@@ -169,8 +148,6 @@ export default function Signup() {
             lg:p-8
           "
         >
-
-          {/* HEADER */}
 
           <div className="mb-6 text-center">
 
@@ -185,14 +162,11 @@ export default function Signup() {
           </div>
 
 
-          {/* FORM */}
 
           <form
             onSubmit={handleSignup}
             className="space-y-4"
           >
-
-            {/* NAME */}
 
             <div>
 
@@ -221,9 +195,6 @@ export default function Signup() {
               />
 
             </div>
-
-
-            {/* EMAIL */}
 
             <div>
 
@@ -254,7 +225,6 @@ export default function Signup() {
             </div>
 
 
-            {/* PASSWORD */}
 
             <div>
 
@@ -284,9 +254,6 @@ export default function Signup() {
 
             </div>
 
-
-            {/* CONFIRM PASSWORD */}
-
             <div>
 
               <label className="mb-1 block text-sm font-medium">
@@ -315,9 +282,6 @@ export default function Signup() {
 
             </div>
 
-
-            {/* BUTTON */}
-
             <button
               type="submit"
               className="
@@ -336,9 +300,6 @@ export default function Signup() {
             </button>
 
           </form>
-
-
-          {/* LOGIN */}
 
           <p className="mt-6 text-center text-sm text-gray-500">
 

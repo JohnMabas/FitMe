@@ -110,11 +110,6 @@ function App() {
       ),
     },
 
-
-    // ==========================
-    // RESTAURANT
-    // ==========================
-
     {
       path: "/restaurant/:id",
       element: (
@@ -123,11 +118,6 @@ function App() {
         </ProtectedRoute>
       ),
     },
-
-
-    // ==========================
-    // CHECKOUT
-    // ==========================
 
     {
       path: "/checkout",

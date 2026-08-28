@@ -8,24 +8,18 @@ import Footer from "./Footer";
 export default function Checkout() {
   const { cart, increaseQuantity, decreaseQuantity, subtotal } = useCart();
 
-  // ORDER TYPE
-
   const [orderType, setOrderType] = useState("Subscription");
 
-  // Subscription
   const [subscription, setSubscription] = useState("Monthly");
 
   const [plan, setPlan] = useState("3-Days/Week");
 
-  // Schedule Order
   const [deliveryDate, setDeliveryDate] = useState("");
 
   const [deliveryTime, setDeliveryTime] = useState("");
 
-  // Note
   const [note, setNote] = useState("");
 
-  // BILL
 
   const deliveryFee = 131;
   const taxes = 20;
@@ -35,20 +29,16 @@ export default function Checkout() {
 
   const total = totalBeforeDiscount - discount;
 
-  // ORDER TYPE HANDLER
 
   const handleOrderType = (type) => {
     setOrderType(type);
 
-    // Clear schedule information
-    // when user selects another order type
     if (type !== "Schedule Order") {
       setDeliveryDate("");
       setDeliveryTime("");
     }
   };
 
-  // PAYMENT
 
   const handlePayment = () => {
     if (cart.length === 0) {
@@ -71,7 +61,6 @@ export default function Checkout() {
     alert(`Payment of $${total} is Successful`);
   };
 
-  // FORMAT DATE
 
   const formattedDate = deliveryDate
     ? new Date(`${deliveryDate}T00:00:00`).toLocaleDateString("en-IN", {
@@ -85,22 +74,15 @@ export default function Checkout() {
     <div className="min-h-screen bg-white text-[#202020]">
       <NavBar />
 
-      {/*CHECKOUT CONTAIN */}
-
       <div className="px-5 py-5">
-        {/* HEADER */}
 
         <header className="mx-auto max-w-300 border-b border-gray-300 pb-3">
           <h1 className="text-[16px] font-semibold">Secure Checkout</h1>
         </header>
 
-        {/* MAIN */}
-
         <main className="mx-auto flex max-w-300 flex-col gap-8 py-7 lg:flex-row">
-          {/*LEFT SIDE*/}
 
           <section className="min-w-0 flex-1">
-            {/*DELIVERY ADDRESS */}
 
             <div>
               <div className="mb-4 flex items-center gap-2">
@@ -110,7 +92,6 @@ export default function Checkout() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                {/* SELECTED ADDRESS */}
 
                 <button
                   className="
@@ -134,8 +115,6 @@ export default function Checkout() {
                     Telangana
                   </p>
                 </button>
-
-                {/* SECOND ADDRESS */}
 
                 <button
                   className="
@@ -161,16 +140,12 @@ export default function Checkout() {
               </div>
             </div>
 
-            {/*TYPE OF ORDER */}
-
             <div className="mt-8">
               <div className="mb-4 flex items-center gap-2">
                 <FaMapMarkerAlt size={14} className="text-[#FC8019]" />
 
                 <h2 className="text-[16px] font-semibold">Type of Order</h2>
               </div>
-
-              {/* ORDER TYPE BUTTONS */}
 
               <div className="flex flex-wrap gap-3">
                 {["Subscription", "Schedule Order", "Order Now"].map((type) => (
@@ -202,8 +177,6 @@ export default function Checkout() {
                 ))}
               </div>
 
-              {/*SUBSCRIPTION OPTIONS*/}
-
               {orderType === "Subscription" && (
                 <div className="mt-6 grid grid-cols-1 gap-7 sm:grid-cols-2">
 
@@ -234,8 +207,6 @@ export default function Checkout() {
                       ))}
                     </div>
                   </div>
-
-                  {/* PLAN */}
 
                   <div>
                     <p className="mb-4 text-[13px] font-medium">
@@ -269,11 +240,9 @@ export default function Checkout() {
                 </div>
               )}
 
-              {/*SCHEDULE ORDER */}
 
               {orderType === "Schedule Order" && (
                 <div className="mt-6 grid grid-cols-1 gap-7 sm:grid-cols-2">
-                  {/* DATE */}
 
                   <div>
                     <p className="mb-4 text-[13px] font-medium">
@@ -311,7 +280,6 @@ export default function Checkout() {
                     </div>
                   </div>
 
-                  {/* TIME */}
 
                   <div>
                     <p className="mb-4 text-[13px] font-medium">
@@ -351,8 +319,6 @@ export default function Checkout() {
                 </div>
               )}
 
-              {/*ORDER NOW*/}
-
               {orderType === "Order Now" && (
                 <div className="mt-6">
                   <p className="text-[12px] text-gray-500">
@@ -365,7 +331,6 @@ export default function Checkout() {
 
 
             <div className="mt-7 grid grid-cols-1 gap-7 sm:grid-cols-2">
-              {/* DELIVERY INFORMATION */}
 
               <div>
                 <p className="mb-4 text-[13px] font-medium">
@@ -407,8 +372,6 @@ export default function Checkout() {
                 )}
               </div>
 
-              {/* NOTE */}
-
               <div>
                 <p className="mb-4 text-[13px] font-medium">Any Note for us?</p>
 
@@ -433,8 +396,6 @@ export default function Checkout() {
             </div>
           </section>
 
-          {/* RIGHT CART */}
-
           <aside
             className="
               w-full
@@ -445,8 +406,6 @@ export default function Checkout() {
               lg:w-96
             "
           >
-            {/* CART HEADER */}
-
             <div className="flex items-center justify-between">
               <h2 className="text-[20px] font-medium">Cart</h2>
 
@@ -454,8 +413,6 @@ export default function Checkout() {
                 {cart.length} Items
               </span>
             </div>
-
-            {/* CART ITEMS */}
 
             <div className="mt-6">
               {cart.length === 0 ? (
@@ -473,8 +430,6 @@ export default function Checkout() {
                     </p>
 
                     <div className="mt-2 flex gap-2">
-                      {/* IMAGE */}
-
                       <img
                         src={item.image}
                         alt={item.name}
@@ -487,8 +442,6 @@ export default function Checkout() {
                         "
                       />
 
-                      {/* DETAILS */}
-
                       <div className="min-w-0 flex-1">
                         <p className="text-[15px] leading-5">{item.name}</p>
 
@@ -496,8 +449,6 @@ export default function Checkout() {
                           ${item.price}
                         </p>
                       </div>
-
-                      {/* QUANTITY */}
 
                       <div className="flex items-center gap-2">
                         <button
@@ -532,8 +483,6 @@ export default function Checkout() {
               )}
             </div>
 
-            {/* BILL DETAILS */}
-
             <div className="border-t border-gray-200 pt-4">
               <p className="mb-3 text-[20px]">Bill details</p>
 
@@ -558,10 +507,7 @@ export default function Checkout() {
               </div>
             </div>
 
-            {/* ORDER SUMMARY */}
-
             <div className="mt-5 border-t border-gray-200 pt-4">
-              {/* SUBSCRIPTION */}
 
               {orderType === "Subscription" && (
                 <>
@@ -570,8 +516,6 @@ export default function Checkout() {
                   </p>
                 </>
               )}
-
-              {/* SCHEDULE */}
 
               {orderType === "Schedule Order" && (
                 <>
@@ -587,14 +531,10 @@ export default function Checkout() {
                 </>
               )}
 
-              {/* ORDER NOW */}
-
               {orderType === "Order Now" && (
                 <p className="text-[12px] text-gray-600">Order Now</p>
               )}
             </div>
-
-            {/* TOTAL */}
 
             <div className="mt-5 border-t border-gray-200 pt-4">
               <div className="flex justify-between text-[14px]">
@@ -615,8 +555,6 @@ export default function Checkout() {
                 <span className="text-[20px] font-semibold">${total}</span>
               </div>
             </div>
-
-            {/* PAYMENT BUTTON */}
 
             <button
               disabled={cart.length === 0}
@@ -641,8 +579,6 @@ export default function Checkout() {
           </aside>
         </main>
       </div>
-
-      {/* FOOTER */}
 
       <Footer />
     </div>

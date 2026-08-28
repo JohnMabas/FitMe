@@ -5,13 +5,10 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  // ADD TO CART
-
   function addToCart(recipe) {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === recipe.id);
 
-      // Already in cart
       if (existingItem) {
         return prevCart.map((item) =>
           item.id === recipe.id
@@ -23,7 +20,6 @@ export function CartProvider({ children }) {
         );
       }
 
-      // New item
       return [
         ...prevCart,
         {
@@ -36,7 +32,6 @@ export function CartProvider({ children }) {
     });
   }
 
-  // INCREASE QUANTITY
 
   function increaseQuantity(id) {
     setCart((prevCart) =>
@@ -51,7 +46,6 @@ export function CartProvider({ children }) {
     );
   }
 
-  // DECREASE QUANTITY
 
   function decreaseQuantity(id) {
     setCart((prevCart) =>
@@ -68,18 +62,14 @@ export function CartProvider({ children }) {
     );
   }
 
-  // TOTAL NUMBER OF ITEMS
-
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
-  // SUBTOTAL
 
   const subtotal = cart.reduce(
     (total, item) => total + Number(item.price || 0) * item.quantity,
     0,
   );
 
-  // CONTEXT
 
   return (
     <CartContext.Provider
@@ -102,7 +92,6 @@ export function CartProvider({ children }) {
   );
 }
 
-// USE CART
 
 export function useCart() {
   return useContext(CartContext);

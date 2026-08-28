@@ -4,8 +4,6 @@ export default function Mind({ Name }) {
   return (
     <section className="mt-16 px-4 sm:mt-20 sm:px-6 md:mt-24 lg:px-8">
 
-      {/* Heading */}
-
       <h2
         className="
           mb-6
@@ -18,9 +16,6 @@ export default function Mind({ Name }) {
       >
         What's on your mind
       </h2>
-
-
-      {/* Cards */}
 
       <div
         className="
