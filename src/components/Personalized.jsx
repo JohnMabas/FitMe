@@ -8,7 +8,7 @@ export default function Personalized({ Personal }) {
           Personalized recommendations
         </h1>
 
-        <div className="grid grid-cols-4 justify-center items-center gap-4">
+        <div className="grid md:grid-cols-4 justify-center items-center gap-4">
           {Personal.slice(0, 4).map((item) => {
             return (
               <PersonalizedCard
