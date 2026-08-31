@@ -113,15 +113,9 @@ export default function Footer() {
       <div className="mx-auto mt-8 max-w-7xl  border-white/30" />
 
       <div className="mt-7 flex justify-center gap-4">
-
-       
           <FaFacebookF size={16} />
-  
           <FaInstagram size={16} />
-        
           <FaTwitter size={16} />
-        
-
       </div>
 
     </footer>
