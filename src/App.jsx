@@ -41,7 +41,6 @@ function Home({ recipes }) {
   );
 }
 
-
 function ProtectedRoute({ children }) {
   const isLoggedIn =
     localStorage.getItem("foodAppLoggedIn") === "true";
@@ -52,7 +51,6 @@ function ProtectedRoute({ children }) {
 
   return children;
 }
-
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -78,21 +76,16 @@ function App() {
   }, []);
 
 
- 
-
   const router = createBrowserRouter([
     
-  
     {
       path: "/",
       element: <Signup />,
     },
-
     {
       path: "/login",
       element: <Login />,
     },
-
     {
       path: "/home",
       element: (
