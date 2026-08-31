@@ -10,7 +10,6 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#FC8019] px-6 py-10 text-white sm:px-10 md:px-12 lg:px-16">
 
-  
       <div
         className="
           mx-auto
@@ -20,7 +19,6 @@ export default function Footer() {
           items-center
           gap-8
           text-center
-
           md:flex-row
           md:items-start
           md:justify-between
@@ -50,7 +48,6 @@ export default function Footer() {
           </b>
 
         </div>
-
         <ul
           className="
             flex
@@ -59,14 +56,11 @@ export default function Footer() {
             gap-x-6
             gap-y-3
             text-sm
-
             sm:gap-x-8
             sm:text-base
-
             md:justify-start
           "
         >
-
           <li>
             <a
               href="#"
@@ -93,7 +87,6 @@ export default function Footer() {
               Help & Support
             </a>
           </li>
-
           <li>
             <a
               href="#"
@@ -102,13 +95,10 @@ export default function Footer() {
               T&C
             </a>
           </li>
-
         </ul>
 
         <div className="text-sm sm:text-base">
-
           <span>Contact: </span>
-
           <a
             href="tel:+911245667899"
             className="font-bold hover:text-black"

@@ -20,7 +20,6 @@ import Checkout from "./components/Checkout";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 
-
 function Home({ recipes }) {
   return (
     <>
