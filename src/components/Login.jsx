@@ -40,10 +40,7 @@ export default function Login() {
         bg-center
         px-5
       "
-      // style={{
-      //   backgroundImage:
-      //     "url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2000&q=80')",
-      // }}
+ 
     >
       <div className="absolute inset-0 bg-black/60" />
 

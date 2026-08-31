@@ -109,7 +109,6 @@ function App() {
         </ProtectedRoute>
       ),
     },
-
     {
       path: "/restaurant/:id",
       element: (
@@ -118,7 +117,6 @@ function App() {
         </ProtectedRoute>
       ),
     },
-
     {
       path: "/checkout",
       element: (
@@ -127,9 +125,7 @@ function App() {
         </ProtectedRoute>
       ),
     },
-
   ]);
-
 
   return (
     <RouterProvider router={router} />
