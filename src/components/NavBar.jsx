@@ -21,7 +21,6 @@ const NavBar = () => {
   return (
     <>
       <nav className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-4 m-4 sm:m-6 lg:m-7">
-
         <span onClick={() => navigate("/home")} className="flex items-center gap-2">
           <img src={logo} alt="logo" className="w-auto" />
           <b className="text-lg">FitMe</b>
@@ -45,16 +44,11 @@ const NavBar = () => {
           <FaSearch className="text-lg shrink-0" />
         </button>
       </form>
-
-      
           <BiShoppingBag className="text-2xl self-center sm:self-auto shrink-0" />
-
           <button className="border px-5 py-2 bg-black text-white font-bold rounded-lg whitespace-nowrap">
             singIn
           </button>
-
         </div>
-
       </nav>
     </>
   );

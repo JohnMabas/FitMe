@@ -3,9 +3,7 @@ import { useNavigate } from "react-router";
 
 const Items = ({ Items = [] }) => {
   const navigate = useNavigate();
-
   const displayedItems = Items.slice(0, 4);
-
   const openRestaurant = (id) => {
     navigate(`/restaurant/${id}`);
   };
@@ -15,6 +13,7 @@ const Items = ({ Items = [] }) => {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
 
         <section>
+
           <h1 className="mb-5 text-xl font-medium text-[#202020] sm:text-2xl">
             Nearby Restaurants
           </h1>
